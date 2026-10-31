@@ -1,0 +1,21 @@
+COUNTRY             HEALTHY  FAST   SMTP   AVG_LATENCY 
+-------------------------------------------------------
+United States       44       0      3      1497ms      
+Hong Kong           4        1      4      1186ms      
+Vietnam             3        3      2      733ms       
+The Netherlands     3        1      3      1917ms      
+Colombia            3        0      3      2529ms      
+Singapore           2        2      2      529ms       
+Ukraine             2        0      0      1474ms      
+Japan               2        0      1      1510ms      
+South Korea         2        0      2      2429ms      
+Sweden              2        0      0      3836ms      
+Albania             1        1      1      943ms       
+India               1        0      1      1055ms      
+Honduras            1        0      1      1096ms      
+Brazil              1        0      1      1677ms      
+Turkey              1        0      1      1876ms      
+Germany             1        0      1      1895ms      
+Russia              1        0      1      2290ms      
+Cambodia            1        0      1      3943ms      
+Austria             1        0      1      5827ms      
