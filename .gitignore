@@ -1,0 +1,13 @@
+# virtual environment
+.venv/
+
+# python cache
+__pycache__/
+*.pyc
+
+# scan output
+results/
+
+# secrets / local config
+.env
+provider.txt

@@ -1,0 +1,13 @@
+# Satu domain per baris. Baris diawali # diabaikan.
+# Tempel domain dari daftar Trustpilot kamu di bawah ini.
+9proxy.com
+brightdata.com
+oxylabs.io
+smartproxy.com
+decodo.com
+iproyal.com
+soax.com
+netnut.io
+webshare.io
+proxy-cheap.com
+rayobyte.com
