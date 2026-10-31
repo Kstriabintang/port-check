@@ -3,6 +3,16 @@
 </p>
 
 <p align="center">
+  <a href="https://github.com/Kstriabintang/port-check/actions/workflows/scan.yml">
+    <img src="https://github.com/Kstriabintang/port-check/actions/workflows/scan.yml/badge.svg" alt="scan status">
+  </a>
+  <a href="https://portcheck.my.id">
+    <img src="https://img.shields.io/website?url=https%3A%2F%2Fportcheck.my.id&label=portcheck.my.id" alt="website status">
+  </a>
+  <img src="https://img.shields.io/badge/cost-Rp0%2Fmonth-brightgreen" alt="cost">
+</p>
+
+<p align="center">
   <b>Live: <a href="https://portcheck.my.id">portcheck.my.id</a></b> ·
   Scanner: Python · API: FastAPI + Cloudflare Worker · CI: GitHub Actions
 </p>

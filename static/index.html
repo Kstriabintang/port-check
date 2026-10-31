@@ -38,6 +38,8 @@
   .row[hidden] { display:none; }
   button { padding:11px 22px; border-radius:10px; border:0; background:var(--accent); color:#06220f;
            font-weight:700; font-size:15px; cursor:pointer; }
+  select { padding:8px 12px; border-radius:8px; border:1px solid var(--line); background:#0c0f15;
+           color:var(--fg); font-size:13.5px; }
   button:disabled { opacity:.5; cursor:wait; }
   .hint { color:var(--dim); font-size:13px; }
   table { width:100%; border-collapse:collapse; margin-top:16px; font-size:13.5px; }
@@ -95,6 +97,19 @@ http://5.6.7.8:3128
       <b>ACTIVE</b> = verified working proxy · <b>OPEN</b> = port open, but not a proxy (gray text = what's actually running there) · <b>DOWN</b> = unreachable</span>
     </div>
     <div id="progress"></div>
+    <div class="row" id="filters" hidden>
+      <select id="f-status">
+        <option value="">All statuses</option>
+        <option value="active">Active only</option>
+        <option value="open">Open only</option>
+        <option value="down">Down only</option>
+      </select>
+      <select id="f-country"><option value="">All countries</option></select>
+      <select id="f-speed">
+        <option value="">All speeds</option>
+        <option>FAST</option><option>MEDIUM</option><option>SLOW</option><option>BAD</option>
+      </select>
+    </div>
     <div class="row" id="actions" hidden>
       <button id="copy-active" type="button" style="background:#232a38;color:var(--fg);padding:8px 16px;font-size:13.5px">📋 Copy active only</button>
       <span class="hint" id="copy-msg"></span>
@@ -127,6 +142,7 @@ http://5.6.7.8:3128
       <code class="api">GET /api/check?proxy=ip:port</code> &nbsp;·&nbsp;
       <code class="api">POST /api/check-bulk</code> (plain text, one proxy per line) &nbsp;·&nbsp;
       <code class="api">GET /api/stats</code>
+      &nbsp;→&nbsp; <a href="/docs" style="color:var(--accent)">full API docs</a>
     </p>
   </div>
 
@@ -166,12 +182,33 @@ function speedBadge(s) {
   return `<span class="b-${s.toLowerCase()}">${s}</span>`;
 }
 
+function render() {
+  const rs = window._results || [];
+  const fs = $('f-status').value, fc = $('f-country').value, fp = $('f-speed').value;
+  const shown = rs.filter(x =>
+    (!fs || x.status === fs) && (!fc || x.country === fc) && (!fp || x.speed === fp));
+  const rows = shown.map(x => `
+    <tr>
+      <td>${x.proxy}</td>
+      <td>${badge(x.status)}</td>
+      <td>${x.type !== '-' ? x.type : `<span style="color:#5b6675">${x.service || '-'}</span>`}</td>
+      <td>${x.country ? x.country + (x.exit_ip ? `<br><span style="color:#5b6675;font-size:11.5px">${x.exit_ip}</span>` : '') : '<span style="color:#5b6675">-</span>'}</td>
+      <td>${x.latency_ms != null ? x.latency_ms + ' ms' : '-'}</td>
+      <td>${speedBadge(x.speed)}</td>
+    </tr>`).join('');
+  $('result').innerHTML = `<table>
+    <thead><tr><th>Proxy</th><th>Status</th><th>Type</th><th>Country</th><th>Latency</th><th>Speed</th></tr></thead>
+    <tbody>${rows || '<tr><td colspan="6" style="color:#5b6675">No rows match the filters.</td></tr>'}</tbody></table>`;
+}
+['f-status', 'f-country', 'f-speed'].forEach(id => $(id).onchange = render);
+
 $('go').onclick = async () => {
   const text = $('bulk').value.trim();
   if (!text) return;
   const lines = text.split(/\r?\n/).filter(l => l.trim() && !l.trim().startsWith('#'));
   $('go').disabled = true;
   $('result').innerHTML = '';
+  $('filters').hidden = true;
   $('progress').textContent = `Checking ${Math.min(lines.length, 25)} proxies in parallel…`;
   try {
     const r = await fetch('/api/check-bulk', { method: 'POST', body: text });
@@ -181,19 +218,16 @@ $('go').onclick = async () => {
     $('progress').textContent = `Done: ${active.length} active out of ${j.checked} checked` +
       (j.invalid.length ? ` · ${j.invalid.length} invalid line(s) skipped` : '');
     window._active = active;
+    window._results = j.results;
     $('actions').hidden = active.length === 0;
     $('copy-msg').textContent = '';
-    const rows = j.results.map(x => `
-      <tr>
-        <td>${x.proxy}</td>
-        <td>${badge(x.status)}</td>
-        <td>${x.type !== '-' ? x.type : `<span style="color:#5b6675">${x.service || '-'}</span>`}</td>
-        <td>${x.latency_ms != null ? x.latency_ms + ' ms' : '-'}</td>
-        <td>${speedBadge(x.speed)}</td>
-      </tr>`).join('');
-    $('result').innerHTML = `<table>
-      <thead><tr><th>Proxy</th><th>Status</th><th>Type</th><th>Latency</th><th>Speed</th></tr></thead>
-      <tbody>${rows}</tbody></table>`;
+    // populate country filter from what was actually detected
+    const countries = [...new Set(j.results.map(x => x.country).filter(Boolean))].sort();
+    $('f-country').innerHTML = '<option value="">All countries</option>' +
+      countries.map(c => `<option>${c}</option>`).join('');
+    $('f-status').value = $('f-speed').value = '';
+    $('filters').hidden = false;
+    render();
   } catch (e) {
     $('progress').textContent = 'Error: ' + e;
   }

@@ -53,6 +53,35 @@ function withTimeout(promise, ms, onTimeout) {
 // Workers can open raw TCP sockets (except port 25). We measure connect
 // latency, then identify the proxy type with a minimal handshake.
 
+// After a proxy tunnel is established, fetch ip-api through it to learn the
+// exit IP + country. Returns {country, exit_ip} or null.
+async function _exitInfo(writer, reader) {
+  try {
+    await writer.write(new TextEncoder().encode(
+      "GET /json?fields=status,country,countryCode,query HTTP/1.1\r\nHost: ip-api.com\r\nConnection: close\r\n\r\n"
+    ));
+    let buf = new Uint8Array(0);
+    const deadline = Date.now() + 6000;
+    while (Date.now() < deadline && buf.length < 8192) {
+      const chunk = await withTimeout(reader.read(), 5000, () => null);
+      if (!chunk || !chunk.value) break;
+      const merged = new Uint8Array(buf.length + chunk.value.length);
+      merged.set(buf); merged.set(chunk.value, buf.length);
+      buf = merged;
+      const txt = new TextDecoder().decode(buf);
+      const idx = txt.indexOf("\r\n\r\n");
+      if (idx !== -1) {
+        try {
+          const j = JSON.parse(txt.slice(idx + 4).trim());
+          if (j && j.status === "success") return { country: j.country, exit_ip: j.query };
+          return null;
+        } catch { /* body incomplete — keep reading */ }
+      }
+    }
+  } catch {}
+  return null;
+}
+
 async function trySocks5(socket, host, port) {
   const writer = socket.writable.getWriter();
   const reader = socket.readable.getReader();
@@ -60,7 +89,7 @@ async function trySocks5(socket, host, port) {
     // greeting: version 5, 1 method, no-auth
     await writer.write(new Uint8Array([0x05, 0x01, 0x00]));
     const hello = await withTimeout(reader.read(), 5000, () => null);
-    if (!hello || !hello.value || hello.value[0] !== 0x05 || hello.value[1] === 0xff) return false;
+    if (!hello || !hello.value || hello.value[0] !== 0x05 || hello.value[1] === 0xff) return null;
 
     // CONNECT host:port (domain form)
     const h = new TextEncoder().encode(host);
@@ -71,9 +100,10 @@ async function trySocks5(socket, host, port) {
     req[6 + h.length] = port & 0xff;
     await writer.write(req);
     const resp = await withTimeout(reader.read(), 8000, () => null);
-    return !!(resp && resp.value && resp.value[1] === 0x00);
+    if (!(resp && resp.value && resp.value[1] === 0x00)) return null;
+    return (await _exitInfo(writer, reader)) || {};
   } catch {
-    return false;
+    return null;
   }
 }
 
@@ -89,9 +119,10 @@ async function trySocks4(socket, host, port) {
     req[9 + h.length] = 0;
     await writer.write(req);
     const resp = await withTimeout(reader.read(), 8000, () => null);
-    return !!(resp && resp.value && resp.value.length >= 8 && resp.value[1] === 0x5a);
+    if (!(resp && resp.value && resp.value.length >= 8 && resp.value[1] === 0x5a)) return null;
+    return (await _exitInfo(writer, reader)) || {};
   } catch {
-    return false;
+    return null;
   }
 }
 
@@ -101,11 +132,12 @@ async function tryHttpConnect(socket, host, port) {
   try {
     await writer.write(new TextEncoder().encode(`CONNECT ${host}:${port} HTTP/1.1\r\nHost: ${host}:${port}\r\n\r\n`));
     const resp = await withTimeout(reader.read(), 8000, () => null);
-    if (!resp || !resp.value) return false;
+    if (!resp || !resp.value) return null;
     const head = new TextDecoder().decode(resp.value);
-    return /^HTTP\/1\.[01] 200/.test(head);
+    if (!/^HTTP\/1\.[01] 200/.test(head)) return null;
+    return (await _exitInfo(writer, reader)) || {};
   } catch {
-    return false;
+    return null;
   }
 }
 
@@ -151,11 +183,12 @@ async function checkOne(p) {
     } catch {
       continue;
     }
-    const ok = await probe(s, target.host, target.port);
+    const geo = await probe(s, target.host, target.port);
     try { s.close(); } catch {}
-    if (ok) {
+    if (geo) {
       out.type = type;
       out.status = "active";
+      if (geo.country) { out.country = geo.country; out.exit_ip = geo.exit_ip; }
       break;
     }
     out.status = "open";

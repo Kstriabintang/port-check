@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>PortCheck — API Docs</title>
+<link rel="icon" type="image/png" href="/favicon.png">
+<style>
+  :root { --bg:#0b0d12; --card:#141821; --line:#232a38; --fg:#e8eaf0; --dim:#93a0b2; --accent:#4ade80; --blue:#60a5fa; }
+  body { margin:0; font:15px/1.65 system-ui,-apple-system,"Segoe UI",sans-serif; background:var(--bg); color:var(--fg); }
+  .wrap { max-width:760px; margin:0 auto; padding:48px 20px 80px; }
+  img.logo { height:48px; }
+  a { color:var(--accent); text-decoration:none; }
+  h1 { font-size:26px; margin:18px 0 4px; }
+  h2 { font-size:17px; margin:28px 0 8px; }
+  p, li { color:var(--dim); }
+  .card { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:18px 20px; margin:14px 0; }
+  code { background:#0c0f15; border:1px solid var(--line); border-radius:6px; padding:2px 7px; font-size:13px; color:var(--blue); }
+  pre { background:#0c0f15; border:1px solid var(--line); border-radius:10px; padding:14px; overflow:auto; font-size:13px; color:#c9d4e3; }
+  .m-get { color:var(--accent); font-weight:700; } .m-post { color:var(--blue); font-weight:700; }
+  table { width:100%; border-collapse:collapse; font-size:13.5px; }
+  th { text-align:left; color:var(--dim); font-size:12px; text-transform:uppercase; padding:6px 10px; border-bottom:1px solid var(--line); }
+  td { padding:6px 10px; border-bottom:1px solid #1a2029; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <a href="/"><img class="logo" src="/logo.png" alt="PortCheck"></a>
+  <h1>API Documentation</h1>
+  <p>Free, no key required. 100 live checks per IP per day. Base URL: <code>https://portcheck.my.id</code></p>
+
+  <div class="card">
+    <h2 style="margin-top:0"><span class="m-get">GET</span> /api/check</h2>
+    <p>Live-check a single proxy. Probes SOCKS5, HTTP CONNECT and SOCKS4; on success, also resolves the exit IP and country through the tunnel.</p>
+    <pre>curl "https://portcheck.my.id/api/check?proxy=socks5://1.2.3.4:1080"</pre>
+    <pre>{
+  "proxy": "1.2.3.4:1080",
+  "status": "active",        // active | open | down
+  "type": "SOCKS5",          // SOCKS5 | SOCKS4 | HTTP | -
+  "country": "Singapore",    // only when active
+  "exit_ip": "203.0.113.7",  // only when active
+  "latency_ms": 245,
+  "speed": "FAST"            // FAST | MEDIUM | SLOW | BAD
+}</pre>
+  </div>
+
+  <div class="card">
+    <h2 style="margin-top:0"><span class="m-post">POST</span> /api/check-bulk</h2>
+    <p>Check up to <b>25 proxies</b> in parallel. Send plain text (one proxy per line) or JSON <code>{"proxies": [...]}</code>. Each proxy costs 1 quota.</p>
+    <pre>curl -X POST https://portcheck.my.id/api/check-bulk \
+  --data-binary @my-list.txt</pre>
+    <pre>{
+  "checked": 25,
+  "invalid": ["bad-line"],
+  "results": [ { "proxy": "...", "status": "active", ... } ]
+  // sorted: active first, then open, then down — fastest first
+}</pre>
+  </div>
+
+  <div class="card">
+    <h2 style="margin-top:0"><span class="m-get">GET</span> /api/stats</h2>
+    <p>Rollup of the latest scheduled full scan (runs every 2 hours via GitHub Actions).</p>
+    <pre>curl "https://portcheck.my.id/api/stats"</pre>
+    <pre>{ "healthy_total": 76, "smtp_capable": 29, "by_country": { "United States": 44, ... } }</pre>
+  </div>
+
+  <h2>Field reference</h2>
+  <table>
+    <tr><th>Field</th><th>Meaning</th></tr>
+    <tr><td><code>status</code></td><td><b>active</b> = verified working proxy · <b>open</b> = port open but not a proxy · <b>down</b> = unreachable</td></tr>
+    <tr><td><code>type</code></td><td>Confirmed proxy protocol; <code>-</code> when the port isn't a proxy</td></tr>
+    <tr><td><code>service</code></td><td>For <b>open</b> ports: what's actually running there (e.g. <code>https-web</code>, <code>squid</code>)</td></tr>
+    <tr><td><code>latency_ms</code></td><td>TCP connect time from the nearest Cloudflare edge</td></tr>
+    <tr><td><code>speed</code></td><td>FAST ≤ 1s · MEDIUM ≤ 3s · SLOW ≤ 6s · BAD &gt; 6s</td></tr>
+  </table>
+
+  <h2>Limits &amp; notes</h2>
+  <ul>
+    <li>Quota: 100 checks/IP/day (HTTP 429 when exceeded).</li>
+    <li>Outbound port 25 is blocked by Cloudflare — live SMTP tests are not possible here; SMTP data comes from the scheduled scanner.</li>
+    <li>Errors: <code>{"error": "..."}</code> with HTTP 400/404/429.</li>
+  </ul>
+
+  <p style="margin-top:32px">Open-source scanner: <a href="https://github.com/Kstriabintang/port-check">github.com/Kstriabintang/port-check</a></p>
+</div>
+</body>
+</html>
