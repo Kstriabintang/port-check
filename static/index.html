@@ -94,6 +94,10 @@ http://5.6.7.8:3128
       <b>ACTIVE</b> = verified working proxy · <b>OPEN</b> = port open, but not a proxy (gray text = what's actually running there) · <b>DOWN</b> = unreachable</span>
     </div>
     <div id="progress"></div>
+    <div class="row" id="actions" hidden>
+      <button id="copy-active" type="button" style="background:#232a38;color:var(--fg);padding:8px 16px;font-size:13.5px">📋 Copy active only</button>
+      <span class="hint" id="copy-msg"></span>
+    </div>
     <div id="result"></div>
   </div>
 
@@ -172,9 +176,12 @@ $('go').onclick = async () => {
     const r = await fetch('/api/check-bulk', { method: 'POST', body: text });
     const j = await r.json();
     if (!r.ok) { $('progress').textContent = 'Error: ' + (j.error || r.status); return; }
-    const active = j.results.filter(x => x.status === 'active').length;
-    $('progress').textContent = `Done: ${active} active out of ${j.checked} checked` +
+    const active = j.results.filter(x => x.status === 'active');
+    $('progress').textContent = `Done: ${active.length} active out of ${j.checked} checked` +
       (j.invalid.length ? ` · ${j.invalid.length} invalid line(s) skipped` : '');
+    window._active = active;
+    $('actions').hidden = active.length === 0;
+    $('copy-msg').textContent = '';
     const rows = j.results.map(x => `
       <tr>
         <td>${x.proxy}</td>
@@ -190,6 +197,20 @@ $('go').onclick = async () => {
     $('progress').textContent = 'Error: ' + e;
   }
   $('go').disabled = false;
+};
+
+$('copy-active').onclick = async () => {
+  const list = (window._active || []).map(x => {
+    const scheme = x.type === 'HTTP' ? 'http' : x.type === 'SOCKS4' ? 'socks4' : 'socks5';
+    return `${scheme}://${x.proxy}`;
+  }).join('\n');
+  try {
+    await navigator.clipboard.writeText(list);
+    $('copy-msg').textContent = `${(window._active || []).length} active proxies copied — paste anywhere.`;
+  } catch {
+    // clipboard API unavailable (non-secure context): fallback prompt
+    prompt('Copy manually:', list);
+  }
 };
 
 fetch('/api/stats').then(r => r.json()).then(j => {
