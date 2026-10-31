@@ -4,6 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>PortCheck — Free Proxy Checker at the Edge</title>
+<link rel="icon" type="image/png" href="/favicon.png">
 <style>
   :root {
     --bg:#0b0d12; --card:#141821; --line:#232a38; --fg:#e8eaf0; --dim:#93a0b4;
@@ -12,8 +13,7 @@
   * { box-sizing:border-box; }
   body { margin:0; font:15px/1.6 system-ui,-apple-system,"Segoe UI",sans-serif; background:var(--bg); color:var(--fg); }
   .wrap { max-width:860px; margin:0 auto; padding:48px 20px 80px; }
-  header h1 { font-size:36px; margin:0; letter-spacing:-.5px; }
-  header h1 span { color:var(--accent); }
+  header img.logo { display:block; height:64px; margin-left:-10px; }
   .sub { color:var(--dim); max-width:600px; margin:10px 0 0; font-size:16px; }
   .stats { display:grid; grid-template-columns:repeat(auto-fit,minmax(140px,1fr)); gap:12px; margin:30px 0; }
   .stat { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:16px; }
@@ -60,7 +60,7 @@
 <body>
 <div class="wrap">
   <header>
-    <h1>Port<span>Check</span></h1>
+    <img class="logo" src="/logo.png" alt="PortCheck">
     <p class="sub">Paste any proxy list and find out which ones are <b>actually alive</b> — real SOCKS5/HTTP handshakes, measured latency, checked from Cloudflare's edge. Free lists are 90% dead; we tell you which 10% aren't.</p>
   </header>
 
