@@ -121,6 +121,22 @@ ready lists, at most `READY_PER_SUBNET_CAP` healthy proxies per /24 are exported
 | `COUNTRY` | Country of the **exit IP**. |
 | `NETWORK` | `Datacenter / Residential / Mobile`. |
 
+## Web API (optional)
+
+A small FastAPI service wraps the scanner (`api.py` + `static/index.html`):
+
+```bash
+pip install -r requirements.txt
+uvicorn api:app --port 8000
+```
+
+| Endpoint | What it does |
+|----------|--------------|
+| `GET /` | Landing page with a live single-proxy check form. |
+| `GET /api/check?proxy=...` | Full live check of one proxy (free quota: `FREE_CHECKS_PER_DAY`, default 10/day per IP). |
+| `GET /api/ready/{fast\|socks5\|http\|smtp}` | Latest ready list as plain text. |
+| `GET /api/stats` | Rollup of the last scan (healthy count, SMTP-capable, per-country). |
+
 ## Project layout
 
 ```
