@@ -66,6 +66,9 @@
   .tier b { font-size:16px; }
   .tier .price { color:var(--accent); font-size:22px; font-weight:800; margin:6px 0; }
   .tier ul { margin:8px 0 0; padding-left:18px; color:var(--dim); font-size:13.5px; }
+  .pay-btn { display:block; margin-top:14px; padding:10px; text-align:center; border-radius:9px;
+             background:var(--accent); color:#06220f; font-weight:700; font-size:14px; text-decoration:none; }
+  .pay-btn:hover { filter:brightness(1.1); }
   footer { color:var(--dim); font-size:13px; text-align:center; margin-top:40px; }
   footer a { color:var(--accent); text-decoration:none; }
 </style>
@@ -151,20 +154,23 @@ http://5.6.7.8:3128
     <div class="tiers">
       <div class="tier">
         <b>Free</b>
-        <div class="price">$0</div>
+        <div class="price">Rp0</div>
         <ul><li>100 live checks / day</li><li>Bulk: 25 proxies per batch</li><li>Public API access</li></ul>
       </div>
       <div class="tier hot">
         <b>Supporter</b>
-        <div class="price">$1/mo</div>
+        <div class="price">Rp10rb/bln</div>
         <ul><li>Unlimited live checks</li><li>API key</li><li>Country &amp; speed filters</li></ul>
+        <a class="pay-btn" href="https://saweria.co/ksatriabintang" target="_blank" rel="noopener">☕ Support via Saweria</a>
       </div>
       <div class="tier">
         <b>Reseller</b>
-        <div class="price">$5/mo</div>
+        <div class="price">Rp50rb/bln</div>
         <ul><li>Full JSON (ASN, latency, SMTP)</li><li>Webhook on every scan</li><li>White-label</li></ul>
+        <a class="pay-btn" href="https://saweria.co/ksatriabintang" target="_blank" rel="noopener">☕ Support via Saweria</a>
       </div>
     </div>
+    <p class="hint" style="margin-top:12px">Pay any tier via Saweria (QRIS / e-wallet / bank transfer), mention your email in the message — your API key is delivered after confirmation.</p>
   </div>
 
   <footer>Open-source scanner · <a href="https://github.com/Kstriabintang/port-check">github.com/Kstriabintang/port-check</a></footer>
