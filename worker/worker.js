@@ -13,6 +13,7 @@ import { connect } from "cloudflare:sockets";
 
 const REPO_RAW = "https://raw.githubusercontent.com/Kstriabintang/port-check/main";
 const FREE_CHECKS_PER_DAY = 10;
+const BULK_MAX = 25;               // max proxies per bulk request (free tier)
 
 const JSON_HEADERS = { "content-type": "application/json" };
 const SECURITY_HEADERS = {
@@ -90,11 +91,7 @@ async function tryHttpConnect(socket, host, port) {
   }
 }
 
-async function liveCheck(proxyParam) {
-  const p = parseProxy(proxyParam);
-  if (!p) return json({ error: "Bad proxy. Use ip:port or scheme://ip:port" }, 400);
-  if (p.port === 25) return json({ error: "Port 25 egress is blocked on Cloudflare Workers" }, 400);
-
+async function checkOne(p) {
   const out = { proxy: `${p.host}:${p.port}`, status: "down", type: "-", latency_ms: null };
   const started = Date.now();
   let socket;
@@ -102,11 +99,10 @@ async function liveCheck(proxyParam) {
     socket = connect({ hostname: p.host, port: p.port });
     await withTimeout(socket.opened, 8000, () => { throw new Error("timeout"); });
   } catch {
-    return json(out);
+    return out;
   }
   out.latency_ms = Date.now() - started;
 
-  // Detect type by attempting the tunnel the scheme implies (or both).
   const target = { host: "ip-api.com", port: 80 };
   let ok = false, type = "-";
   if (p.scheme.startsWith("socks")) {
@@ -121,18 +117,58 @@ async function liveCheck(proxyParam) {
   out.type = ok ? type : "?";
   out.status = ok ? "active" : "open";
   out.speed = out.latency_ms <= 1000 ? "FAST" : out.latency_ms <= 3000 ? "MEDIUM" : out.latency_ms <= 6000 ? "SLOW" : "BAD";
+  return out;
+}
+
+async function liveCheck(proxyParam) {
+  const p = parseProxy(proxyParam);
+  if (!p) return json({ error: "Bad proxy. Use ip:port or scheme://ip:port" }, 400);
+  if (p.port === 25) return json({ error: "Port 25 egress is blocked on Cloudflare Workers" }, 400);
+  const out = await checkOne(p);
   out.note = "SMTP live test not available on Workers (port 25 blocked). See /api/stats for scanned SMTP data.";
   return json(out);
 }
 
+// POST /api/check-bulk  body: raw text (one proxy per line) or {"proxies": [...]}
+// Checks up to BULK_MAX proxies in parallel; each proxy counts as 1 quota.
+async function bulkCheck(request, env) {
+  const ip = request.headers.get("cf-connecting-ip") || "unknown";
+  let lines = [];
+  const ct = request.headers.get("content-type") || "";
+  if (ct.includes("application/json")) {
+    const body = await request.json().catch(() => null);
+    if (body && Array.isArray(body.proxies)) lines = body.proxies;
+  } else {
+    lines = (await request.text()).split(/\r?\n/);
+  }
+  const parsed = [], invalid = [];
+  for (const line of lines) {
+    const t = (line || "").trim();
+    if (!t || t.startsWith("#")) continue;
+    const p = parseProxy(t);
+    if (p) {
+      if (p.port === 25) invalid.push(t + " (port 25 blocked)");
+      else if (!parsed.some((x) => x.host === p.host && x.port === p.port)) parsed.push(p);
+    } else invalid.push(t);
+    if (parsed.length >= BULK_MAX) break;
+  }
+  if (!parsed.length) return json({ error: "No valid proxies in request body" }, 400);
+  if (!(await takeQuota(env, ip, parsed.length))) {
+    return json({ error: `Free limit reached (${FREE_CHECKS_PER_DAY} checks/day)` }, 429);
+  }
+  const results = await Promise.all(parsed.map(checkOne));
+  results.sort((a, b) => (a.latency_ms ?? 1e9) - (b.latency_ms ?? 1e9));
+  return json({ checked: results.length, invalid, results });
+}
+
 // ---- Rate limit (KV if bound; otherwise allow) ---------------------------
 
-async function takeQuota(env, ip) {
+async function takeQuota(env, ip, n = 1) {
   if (!env.QUOTA) return true;
   const key = `q:${ip}:${new Date().toISOString().slice(0, 10)}`;
   const used = parseInt((await env.QUOTA.get(key)) || "0", 10);
-  if (used >= FREE_CHECKS_PER_DAY) return false;
-  await env.QUOTA.put(key, String(used + 1), { expirationTtl: 90000 });
+  if (used + n > FREE_CHECKS_PER_DAY) return false;
+  await env.QUOTA.put(key, String(used + n), { expirationTtl: 90000 });
   return true;
 }
 
@@ -190,6 +226,9 @@ export default {
         return json({ error: `Free limit reached (${FREE_CHECKS_PER_DAY} checks/day)` }, 429);
       }
       return liveCheck(url.searchParams.get("proxy"));
+    }
+    if (url.pathname === "/api/check-bulk" && request.method === "POST") {
+      return bulkCheck(request, env);
     }
     if (url.pathname.startsWith("/api/ready/")) return readyList(url.pathname.split("/").pop());
     if (url.pathname === "/api/stats") return stats();
