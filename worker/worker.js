@@ -139,7 +139,15 @@ async function takeQuota(env, ip) {
 // ---- Data endpoints (served from the repo, cached at the edge) -----------
 
 async function proxyFetch(path) {
-  return fetch(`${REPO_RAW}/${path}`, { cf: { cacheTtl: 600, cacheEverything: true } });
+  const url = `${REPO_RAW}/${path}`;
+  const r = await fetch(url, {
+    cf: { cacheTtlByStatus: { "200-299": 600 }, cacheEverything: true },
+  });
+  if (!r.ok) {
+    // never keep a cached failure (e.g. 404 before the first scan ran)
+    try { await caches.default.delete(new Request(url)); } catch {}
+  }
+  return r;
 }
 
 async function readyList(kind) {
@@ -155,7 +163,7 @@ async function readyList(kind) {
 
 async function stats() {
   const r = await proxyFetch("results/healthy_proxies.json");
-  if (!r.ok) return json({ error: "No scan results yet" }, 404);
+  if (!r.ok) return json({ error: `No scan results yet (upstream HTTP ${r.status})` }, 404);
   const healthy = await r.json();
   const byCountry = {};
   let smtp = 0;
