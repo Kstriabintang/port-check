@@ -129,9 +129,7 @@ ready lists, at most `READY_PER_SUBNET_CAP` healthy proxies per /24 are exported
   API at the edge (landing page as static assets, ready lists read from this
   repo, live single-proxy checks via raw TCP sockets). Note: Workers block
   outbound port 25, so live SMTP tests stay in the scheduled scan.
-- Deploy: `npx wrangler deploy` (needs a Cloudflare API token with Workers edit
-  permission; optionally create the KV namespace for rate limiting — see
-  `wrangler.toml`).
+- Live: **https://portcheck.my.id** (Cloudflare Worker + custom domain).
 
 ## Web API (optional)
 

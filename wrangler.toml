@@ -4,6 +4,11 @@ account_id = "f6e777fc23bf32d482d8f9b47d8b7197"
 compatibility_date = "2025-10-01"
 compatibility_flags = ["nodejs_compat"]
 
+routes = [
+  { pattern = "portcheck.my.id", custom_domain = true },
+  { pattern = "www.portcheck.my.id", custom_domain = true },
+]
+
 # Landing page served as static assets from /static
 [assets]
 directory = "static"
