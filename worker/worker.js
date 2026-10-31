@@ -12,7 +12,7 @@
 import { connect } from "cloudflare:sockets";
 
 const REPO_RAW = "https://raw.githubusercontent.com/Kstriabintang/port-check/main";
-const FREE_CHECKS_PER_DAY = 10;
+const FREE_CHECKS_PER_DAY = 100;
 const BULK_MAX = 25;               // max proxies per bulk request (free tier)
 
 const JSON_HEADERS = { "content-type": "application/json" };
@@ -172,7 +172,7 @@ async function takeQuota(env, ip, n = 1) {
   return true;
 }
 
-// ---- Data endpoints (served from the repo, cached at the edge) -----------
+// ---- Data endpoint (from the scheduled scan in the repo) -----------------
 
 async function proxyFetch(path) {
   const url = `${REPO_RAW}/${path}`;
@@ -184,17 +184,6 @@ async function proxyFetch(path) {
     try { await caches.default.delete(new Request(url)); } catch {}
   }
   return r;
-}
-
-async function readyList(kind) {
-  if (!["fast", "socks5", "http", "smtp"].includes(kind)) {
-    return json({ error: "kind must be one of: fast, socks5, http, smtp" }, 404);
-  }
-  const r = await proxyFetch(`results/ready/${kind}.txt`);
-  if (!r.ok) return json({ error: "No list yet — the first scheduled scan has not run" }, 404);
-  return new Response(r.body, {
-    headers: { "content-type": "text/plain; charset=utf-8", "cache-control": "public, max-age=600" },
-  });
 }
 
 async function stats() {
@@ -230,7 +219,6 @@ export default {
     if (url.pathname === "/api/check-bulk" && request.method === "POST") {
       return bulkCheck(request, env);
     }
-    if (url.pathname.startsWith("/api/ready/")) return readyList(url.pathname.split("/").pop());
     if (url.pathname === "/api/stats") return stats();
 
     // everything else -> static assets (landing page)

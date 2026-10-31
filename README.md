@@ -143,8 +143,8 @@ uvicorn api:app --port 8000
 | Endpoint | What it does |
 |----------|--------------|
 | `GET /` | Landing page with a live single-proxy check form. |
-| `GET /api/check?proxy=...` | Full live check of one proxy (free quota: `FREE_CHECKS_PER_DAY`, default 10/day per IP). |
-| `GET /api/ready/{fast\|socks5\|http\|smtp}` | Latest ready list as plain text. |
+| `GET /api/check?proxy=...` | Full live check of one proxy (free quota: `FREE_CHECKS_PER_DAY`, default 100/day per IP). |
+| `POST /api/check-bulk` | Plain-text body, one proxy per line, up to 25 per batch (Worker version). |
 | `GET /api/stats` | Rollup of the last scan (healthy count, SMTP-capable, per-country). |
 
 ## Project layout

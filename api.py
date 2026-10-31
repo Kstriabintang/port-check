@@ -28,7 +28,7 @@ app = FastAPI(title="Port Check API", version="0.1.0")
 STATIC_DIR = os.path.join(os.path.dirname(__file__), "static")
 
 # ---- Tiny in-memory freemium gate: N free live checks per IP per day ----
-FREE_CHECKS_PER_DAY = int(os.environ.get("FREE_CHECKS_PER_DAY", "10"))
+FREE_CHECKS_PER_DAY = int(os.environ.get("FREE_CHECKS_PER_DAY", "100"))
 _usage = defaultdict(list)  # ip -> [timestamps]
 
 
