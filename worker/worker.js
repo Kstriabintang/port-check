@@ -221,6 +221,10 @@ export default {
     }
     if (url.pathname === "/api/stats") return stats();
 
+    if (url.pathname.startsWith("/api/")) {
+      return json({ error: "Unknown endpoint. See / for available routes." }, 404);
+    }
+
     // everything else -> static assets (landing page)
     if (env.ASSETS) return env.ASSETS.fetch(request);
     return new Response("PortCheck Worker OK", { headers: { "content-type": "text/plain" } });
