@@ -109,6 +109,15 @@ async function tryHttpConnect(socket, host, port) {
   }
 }
 
+// Port-based service guess for open ports that turn out not to be proxies.
+const SERVICE_BY_PORT = {
+  21: "ftp", 22: "ssh", 23: "telnet", 53: "dns", 80: "http-web", 110: "pop3",
+  143: "imap", 443: "https-web", 465: "smtps", 587: "smtp-submit", 993: "imaps",
+  995: "pop3s", 3128: "squid", 3306: "mysql", 5432: "postgres", 6379: "redis",
+  8000: "http-alt", 8080: "http-alt", 8443: "https-alt", 8888: "http-alt",
+  1080: "socks?", 1433: "mssql", 3389: "rdp", 27017: "mongodb",
+};
+
 async function checkOne(p) {
   const out = { proxy: `${p.host}:${p.port}`, status: "down", type: "-", latency_ms: null };
   const started = Date.now();
@@ -151,6 +160,7 @@ async function checkOne(p) {
     }
     out.status = "open";
   }
+  if (out.status === "open") out.service = SERVICE_BY_PORT[p.port] || "tcp";
   out.speed = out.latency_ms <= 1000 ? "FAST" : out.latency_ms <= 3000 ? "MEDIUM" : out.latency_ms <= 6000 ? "SLOW" : "BAD";
   return out;
 }
