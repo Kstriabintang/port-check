@@ -12,7 +12,15 @@
   }
   * { box-sizing:border-box; }
   body { margin:0; font:15px/1.6 system-ui,-apple-system,"Segoe UI",sans-serif; background:var(--bg); color:var(--fg); }
-  .wrap { max-width:860px; margin:0 auto; padding:48px 20px 80px; }
+  .wrap { max-width:860px; margin:0 auto; padding:0 20px 80px; }
+  nav { position:sticky; top:0; z-index:10; display:flex; align-items:center; gap:18px;
+        padding:12px 0; background:rgba(11,13,18,.88); backdrop-filter:blur(10px);
+        border-bottom:1px solid var(--line); margin-bottom:36px; }
+  nav img { height:34px; }
+  nav .links { margin-left:auto; display:flex; gap:18px; }
+  nav a { color:var(--dim); text-decoration:none; font-size:14px; }
+  nav a:hover { color:var(--accent); }
+  header { padding-top:8px; }
   header img.logo { display:block; height:64px; margin-left:-10px; }
   .sub { color:var(--dim); max-width:600px; margin:10px 0 0; font-size:16px; }
   .stats { display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:12px; margin:30px 0 6px; }
@@ -69,12 +77,34 @@
   .pay-btn { display:block; margin-top:14px; padding:10px; text-align:center; border-radius:9px;
              background:var(--accent); color:#06220f; font-weight:700; font-size:14px; text-decoration:none; }
   .pay-btn:hover { filter:brightness(1.1); }
-  footer { color:var(--dim); font-size:13px; text-align:center; margin-top:40px; }
+  footer { color:var(--dim); font-size:13px; margin-top:48px; border-top:1px solid var(--line); padding-top:28px; }
+  .foot-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(180px,1fr)); gap:20px; margin-bottom:22px; }
+  .foot-grid h3 { font-size:13px; text-transform:uppercase; letter-spacing:.6px; color:var(--fg); margin:0 0 8px; }
+  .foot-grid a { display:block; color:var(--dim); text-decoration:none; margin:4px 0; }
+  .foot-grid a:hover { color:var(--accent); }
+  .foot-note { text-align:center; }
+  .apikey-row { display:flex; gap:10px; align-items:center; margin-top:12px; }
+  .apikey { flex:1; padding:9px 12px; border-radius:9px; border:1px dashed var(--line); background:#0c0f15;
+            color:var(--fg); font:13px ui-monospace,Menlo,monospace; }
+  .apikey:focus { outline:none; border-color:var(--accent); }
+  .tier-tag { display:inline-block; font-size:11.5px; padding:2px 9px; border-radius:999px;
+              background:rgba(74,222,128,.15); color:var(--accent); font-weight:700; }
   footer a { color:var(--accent); text-decoration:none; }
 </style>
 </head>
 <body>
 <div class="wrap">
+  <nav>
+    <a href="/"><img src="/logo.png" alt="PortCheck"></a>
+    <div class="links">
+      <a href="#checker">Checker</a>
+      <a href="#sources">Sources</a>
+      <a href="#api">API</a>
+      <a href="/docs">Docs</a>
+      <a href="#pricing">Pricing</a>
+      <a href="https://github.com/Kstriabintang/port-check" target="_blank" rel="noopener">GitHub</a>
+    </div>
+  </nav>
   <header>
     <img class="logo" src="/logo.png" alt="PortCheck">
     <p class="sub">Paste any proxy list and find out which ones are <b>actually alive</b> — real SOCKS5/HTTP handshakes, measured latency, checked from Cloudflare's edge. Free lists are 90% dead; we tell you which 10% aren't.</p>
@@ -88,7 +118,7 @@
   </div>
   <p class="stats-note"><span class="pulse"></span> Live data — our scanner re-verifies every proxy every 2 hours, around the clock.</p>
 
-  <div class="card">
+  <div class="card" id="checker">
     <h2>🔍 Check your proxies — paste a whole list</h2>
     <textarea id="bulk" placeholder="socks5://1.2.3.4:1080
 http://5.6.7.8:3128
@@ -98,6 +128,10 @@ http://5.6.7.8:3128
       <button id="go">Check Now</button>
       <span class="hint">Checked in parallel from the edge — usually under 10 seconds.<br>
       <b>ACTIVE</b> = verified working proxy · <b>OPEN</b> = port open, but not a proxy (gray text = what's actually running there) · <b>DOWN</b> = unreachable</span>
+    </div>
+    <div class="apikey-row">
+      <input class="apikey" id="apikey" type="text" placeholder="Have an API key? Paste it here for unlimited checks" autocomplete="off">
+      <span id="tier-tag" class="tier-tag" hidden></span>
     </div>
     <div id="progress"></div>
     <div class="row" id="filters" hidden>
@@ -120,7 +154,7 @@ http://5.6.7.8:3128
     <div id="result"></div>
   </div>
 
-  <div class="card">
+  <div class="card" id="sources">
     <h2>📥 Where to get free proxy lists</h2>
     <p class="hint" style="margin:0 0 12px">We don't redistribute lists — grab fresh ones from these sources, then verify them here:</p>
     <div class="sources">
@@ -139,7 +173,7 @@ http://5.6.7.8:3128
     </div>
   </div>
 
-  <div class="card">
+  <div class="card" id="api">
     <h2>🔌 Free API for developers</h2>
     <p style="color:var(--dim);font-size:14px;margin:0">
       <code class="api">GET /api/check?proxy=ip:port</code> &nbsp;·&nbsp;
@@ -149,7 +183,7 @@ http://5.6.7.8:3128
     </p>
   </div>
 
-  <div class="card">
+  <div class="card" id="pricing">
     <h2>💰 Pricing — coffee money</h2>
     <div class="tiers">
       <div class="tier">
@@ -173,11 +207,40 @@ http://5.6.7.8:3128
     <p class="hint" style="margin-top:12px">Pay any tier via Saweria (QRIS / e-wallet / bank transfer), mention your email in the message — your API key is delivered after confirmation.</p>
   </div>
 
-  <footer>Open-source scanner · <a href="https://github.com/Kstriabintang/port-check">github.com/Kstriabintang/port-check</a></footer>
+  <footer>
+    <div class="foot-grid">
+      <div>
+        <h3>Product</h3>
+        <a href="#checker">Proxy checker</a>
+        <a href="/docs">API docs</a>
+        <a href="#pricing">Pricing</a>
+      </div>
+      <div>
+        <h3>Resources</h3>
+        <a href="#sources">Free proxy sources</a>
+        <a href="/api/stats">Scan stats (JSON)</a>
+      </div>
+      <div>
+        <h3>Project</h3>
+        <a href="https://github.com/Kstriabintang/port-check" target="_blank" rel="noopener">GitHub repo</a>
+        <a href="https://saweria.co/ksatriabintang" target="_blank" rel="noopener">Support on Saweria</a>
+      </div>
+    </div>
+    <p class="foot-note">Open-source scanner · github.com/Kstriabintang/port-check · hosted on Cloudflare's free tier</p>
+  </footer>
 </div>
 
 <script>
 const $ = (id) => document.getElementById(id);
+
+// API key: stored locally in the browser only, sent as X-API-Key header.
+const apikeyInput = $('apikey');
+apikeyInput.value = localStorage.getItem('pc_key') || '';
+apikeyInput.oninput = () => localStorage.setItem('pc_key', apikeyInput.value.trim());
+function showTier(t) {
+  const tag = $('tier-tag');
+  if (t && t !== 'free') { tag.textContent = t.toUpperCase() + ' ✓'; tag.hidden = false; }
+}
 
 function badge(status) {
   const cls = status === 'active' ? 'b-ok' : status === 'open' ? 'b-open' : 'b-down';
@@ -217,9 +280,14 @@ $('go').onclick = async () => {
   $('filters').hidden = true;
   $('progress').textContent = `Checking ${Math.min(lines.length, 25)} proxies in parallel…`;
   try {
-    const r = await fetch('/api/check-bulk', { method: 'POST', body: text });
+    const r = await fetch('/api/check-bulk', {
+      method: 'POST',
+      headers: apikeyInput.value.trim() ? { 'X-API-Key': apikeyInput.value.trim() } : {},
+      body: text,
+    });
     const j = await r.json();
     if (!r.ok) { $('progress').textContent = 'Error: ' + (j.error || r.status); return; }
+    showTier(j.tier);
     const active = j.results.filter(x => x.status === 'active');
     $('progress').textContent = `Done: ${active.length} active out of ${j.checked} checked` +
       (j.invalid.length ? ` · ${j.invalid.length} invalid line(s) skipped` : '');

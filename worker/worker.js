@@ -14,6 +14,20 @@ import { connect } from "cloudflare:sockets";
 const REPO_RAW = "https://raw.githubusercontent.com/Kstriabintang/port-check/main";
 const FREE_CHECKS_PER_DAY = 100;
 const BULK_MAX = 25;               // max proxies per bulk request (free tier)
+const BULK_MAX_PAID = 200;         // per bulk request with a valid API key
+const KEY_PREFIX = "key:";         // KV entries: key:<token> -> {"tier": "supporter"|"reseller"}
+
+// Return the caller's tier if X-API-Key matches a KV entry, else null.
+async function apiKeyTier(env, request) {
+  const key = request.headers.get("x-api-key");
+  if (!key || !env.QUOTA) return null;
+  try {
+    const v = await env.QUOTA.get(KEY_PREFIX + key);
+    return v ? (JSON.parse(v).tier || "supporter") : null;
+  } catch {
+    return null;
+  }
+}
 
 const JSON_HEADERS = { "content-type": "application/json" };
 const SECURITY_HEADERS = {
@@ -209,8 +223,11 @@ async function liveCheck(proxyParam) {
 
 // POST /api/check-bulk  body: raw text (one proxy per line) or {"proxies": [...]}
 // Checks up to BULK_MAX proxies in parallel; each proxy counts as 1 quota.
+// Valid X-API-Key: unlimited quota + larger batches.
 async function bulkCheck(request, env) {
   const ip = request.headers.get("cf-connecting-ip") || "unknown";
+  const tier = await apiKeyTier(env, request);
+  const bulkMax = tier ? BULK_MAX_PAID : BULK_MAX;
   let lines = [];
   const ct = request.headers.get("content-type") || "";
   if (ct.includes("application/json")) {
@@ -228,16 +245,16 @@ async function bulkCheck(request, env) {
       if (p.port === 25) invalid.push(t + " (port 25 blocked)");
       else if (!parsed.some((x) => x.host === p.host && x.port === p.port)) parsed.push(p);
     } else invalid.push(t);
-    if (parsed.length >= BULK_MAX) break;
+    if (parsed.length >= bulkMax) break;
   }
   if (!parsed.length) return json({ error: "No valid proxies in request body" }, 400);
-  if (!(await takeQuota(env, ip, parsed.length))) {
+  if (!tier && !(await takeQuota(env, ip, parsed.length))) {
     return json({ error: `Free limit reached (${FREE_CHECKS_PER_DAY} checks/day)` }, 429);
   }
   const results = await Promise.all(parsed.map(checkOne));
   const rank = { active: 0, open: 1, down: 2 };
   results.sort((a, b) => (rank[a.status] - rank[b.status]) || ((a.latency_ms ?? 1e9) - (b.latency_ms ?? 1e9)));
-  return json({ checked: results.length, invalid, results });
+  return json({ checked: results.length, invalid, tier: tier || "free", results });
 }
 
 // ---- Rate limit (KV if bound; otherwise allow) ---------------------------
@@ -289,9 +306,12 @@ export default {
     const url = new URL(request.url);
 
     if (url.pathname === "/api/check") {
-      const ip = request.headers.get("cf-connecting-ip") || "unknown";
-      if (!(await takeQuota(env, ip))) {
-        return json({ error: `Free limit reached (${FREE_CHECKS_PER_DAY} checks/day)` }, 429);
+      const tier = await apiKeyTier(env, request);
+      if (!tier) {
+        const ip = request.headers.get("cf-connecting-ip") || "unknown";
+        if (!(await takeQuota(env, ip))) {
+          return json({ error: `Free limit reached (${FREE_CHECKS_PER_DAY} checks/day)` }, 429);
+        }
       }
       return liveCheck(url.searchParams.get("proxy"));
     }

@@ -16,6 +16,10 @@ directory = "static"
 # Rate-limit storage (10 free checks/day per IP).
 # Create once:  wrangler kv namespace create QUOTA
 # then paste the returned id below and uncomment.
+# Rate-limit + API-key storage (KV namespace "QUOTA", id below).
+# Issue a paid key (note: --remote is required, otherwise wrangler writes
+# to the local dev store and the live Worker never sees it):
+#   wrangler kv key put "key:pc_$(openssl rand -hex 8)" '{"tier":"supporter"}' --remote
 [[kv_namespaces]]
 binding = "QUOTA"
 id = "eda41d20a5694aa0a4e040a1f4d4d978"
