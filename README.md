@@ -1,8 +1,33 @@
+<p align="center">
+  <img src="static/logo.png" alt="PortCheck" width="360">
+</p>
+
+<p align="center">
+  <b>Live: <a href="https://portcheck.my.id">portcheck.my.id</a></b> ·
+  Scanner: Python · API: FastAPI + Cloudflare Worker · CI: GitHub Actions
+</p>
+
 # Port Check
 
 A free-proxy scanner that does more than a port check: it verifies whether each
 proxy can **actually carry SMTP traffic**, measures connection **speed**, resolves
 the **exit ISP/ASN**, and writes clean, ready-to-use result files.
+
+![PortCheck web UI](docs/screenshot-home.png)
+
+## Architecture (zero-cost hosting)
+
+```
+GitHub Actions (every 2h) ──scan──▶ results/ in this repo ──▶ Cloudflare Worker (edge API)
+        │                                                            │
+   portcheck/ Python pipeline                              portcheck.my.id (static UI + /api/*)
+```
+
+- **Scanner** — Python, 100 parallel workers, SOCKS5/SOCKS4/HTTP detection,
+  SMTP capability test (never sends mail), speed grading, subnet-flood detection.
+- **Web** — Cloudflare Worker with raw TCP sockets (`cloudflare:sockets`) for
+  live checks, KV-backed daily quota, static landing page as Worker assets.
+- **Pipeline** — scheduled GitHub Actions run re-scans and commits results back.
 
 ## Requirements
 
