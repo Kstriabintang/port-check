@@ -1,0 +1,17 @@
+name = "portcheck"
+main = "worker/worker.js"
+compatibility_date = "2025-10-01"
+compatibility_flags = ["nodejs_compat"]
+
+# Landing page served as static assets from /static
+[assets]
+directory = "static"
+
+# Rate-limit storage (10 free checks/day per IP).
+# Create once:  wrangler kv namespace create QUOTA
+# then paste the returned id below and uncomment.
+# [[kv_namespaces]]
+# binding = "QUOTA"
+# id = "<paste-id-here>"
+
+# Optional: claim a workers.dev subdomain or attach your own domain later.

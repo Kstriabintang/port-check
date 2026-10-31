@@ -121,6 +121,18 @@ ready lists, at most `READY_PER_SUBNET_CAP` healthy proxies per /24 are exported
 | `COUNTRY` | Country of the **exit IP**. |
 | `NETWORK` | `Datacenter / Residential / Mobile`. |
 
+## Free hosting setup (no VPS)
+
+- **`.github/workflows/scan.yml`** — GitHub Actions re-scans every 2 hours and
+  commits `results/` back to the repo. Trigger manually via Actions → "Run workflow".
+- **`worker/worker.js` + `wrangler.toml`** — Cloudflare Worker serving the same
+  API at the edge (landing page as static assets, ready lists read from this
+  repo, live single-proxy checks via raw TCP sockets). Note: Workers block
+  outbound port 25, so live SMTP tests stay in the scheduled scan.
+- Deploy: `npx wrangler deploy` (needs a Cloudflare API token with Workers edit
+  permission; optionally create the KV namespace for rate limiting — see
+  `wrangler.toml`).
+
 ## Web API (optional)
 
 A small FastAPI service wraps the scanner (`api.py` + `static/index.html`):
