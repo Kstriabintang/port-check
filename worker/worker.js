@@ -77,6 +77,24 @@ async function trySocks5(socket, host, port) {
   }
 }
 
+async function trySocks4(socket, host, port) {
+  const writer = socket.writable.getWriter();
+  const reader = socket.readable.getReader();
+  try {
+    // SOCKS4a CONNECT: VN=4, CD=1, port, IP=0.0.0.1, empty user, domain
+    const h = new TextEncoder().encode(host);
+    const req = new Uint8Array(10 + h.length);
+    req.set([0x04, 0x01, port >> 8, port & 0xff, 0, 0, 0, 1, 0], 0);
+    req.set(h, 9);
+    req[9 + h.length] = 0;
+    await writer.write(req);
+    const resp = await withTimeout(reader.read(), 8000, () => null);
+    return !!(resp && resp.value && resp.value.length >= 8 && resp.value[1] === 0x5a);
+  } catch {
+    return false;
+  }
+}
+
 async function tryHttpConnect(socket, host, port) {
   const writer = socket.writable.getWriter();
   const reader = socket.readable.getReader();
@@ -102,20 +120,37 @@ async function checkOne(p) {
     return out;
   }
   out.latency_ms = Date.now() - started;
-
-  const target = { host: "ip-api.com", port: 80 };
-  let ok = false, type = "-";
-  if (p.scheme.startsWith("socks")) {
-    ok = await trySocks5(socket, target.host, target.port);
-    type = "SOCKS5";
-  } else {
-    ok = await tryHttpConnect(socket, target.host, target.port);
-    type = "HTTP";
-  }
   try { socket.close(); } catch {}
 
-  out.type = ok ? type : "?";
-  out.status = ok ? "active" : "open";
+  // Probe every protocol (like the Python scanner does), not just the hinted
+  // scheme — a bare "ip:port" could be SOCKS5, SOCKS4, or HTTP CONNECT.
+  const target = { host: "ip-api.com", port: 80 };
+  const probes = [
+    ["SOCKS5", trySocks5],
+    ["HTTP", tryHttpConnect],
+    ["SOCKS4", trySocks4],
+  ];
+  // If the user hinted a scheme, try that one first.
+  if (p.scheme.startsWith("socks4")) probes.sort((a) => (a[0] === "SOCKS4" ? -1 : 1));
+  else if (p.scheme.startsWith("http")) probes.sort((a) => (a[0] === "HTTP" ? -1 : 1));
+
+  for (const [type, probe] of probes) {
+    let s;
+    try {
+      s = connect({ hostname: p.host, port: p.port });
+      await withTimeout(s.opened, 8000, () => { throw new Error("timeout"); });
+    } catch {
+      continue;
+    }
+    const ok = await probe(s, target.host, target.port);
+    try { s.close(); } catch {}
+    if (ok) {
+      out.type = type;
+      out.status = "active";
+      break;
+    }
+    out.status = "open";
+  }
   out.speed = out.latency_ms <= 1000 ? "FAST" : out.latency_ms <= 3000 ? "MEDIUM" : out.latency_ms <= 6000 ? "SLOW" : "BAD";
   return out;
 }
@@ -157,7 +192,8 @@ async function bulkCheck(request, env) {
     return json({ error: `Free limit reached (${FREE_CHECKS_PER_DAY} checks/day)` }, 429);
   }
   const results = await Promise.all(parsed.map(checkOne));
-  results.sort((a, b) => (a.latency_ms ?? 1e9) - (b.latency_ms ?? 1e9));
+  const rank = { active: 0, open: 1, down: 2 };
+  results.sort((a, b) => (rank[a.status] - rank[b.status]) || ((a.latency_ms ?? 1e9) - (b.latency_ms ?? 1e9)));
   return json({ checked: results.length, invalid, results });
 }
 
