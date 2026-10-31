@@ -15,10 +15,20 @@
   .wrap { max-width:860px; margin:0 auto; padding:48px 20px 80px; }
   header img.logo { display:block; height:64px; margin-left:-10px; }
   .sub { color:var(--dim); max-width:600px; margin:10px 0 0; font-size:16px; }
-  .stats { display:grid; grid-template-columns:repeat(auto-fit,minmax(140px,1fr)); gap:12px; margin:30px 0; }
-  .stat { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:16px; }
-  .stat b { display:block; font-size:26px; color:var(--accent); }
-  .stat span { color:var(--dim); font-size:13px; }
+  .stats { display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:12px; margin:30px 0 6px; }
+  .stat { position:relative; background:var(--card); border:1px solid var(--line); border-radius:12px;
+          padding:18px 16px 14px; overflow:hidden; }
+  .stat::before { content:""; position:absolute; top:0; left:0; right:0; height:3px;
+                  background:linear-gradient(90deg,var(--accent),transparent); }
+  .stat .ico { font-size:15px; }
+  .stat b { display:block; font-size:30px; font-weight:800; margin:2px 0 0;
+            background:linear-gradient(90deg,#4ade80,#22d3ee); -webkit-background-clip:text;
+            background-clip:text; -webkit-text-fill-color:transparent; }
+  .stat span { color:var(--dim); font-size:12.5px; text-transform:uppercase; letter-spacing:.6px; }
+  .stats-note { display:flex; align-items:center; gap:7px; color:var(--dim); font-size:12.5px; margin:0 0 26px; }
+  .pulse { width:8px; height:8px; border-radius:50%; background:var(--accent);
+           animation:pulse 2s infinite; }
+  @keyframes pulse { 0%{box-shadow:0 0 0 0 rgba(74,222,128,.5)} 70%{box-shadow:0 0 0 8px rgba(74,222,128,0)} 100%{box-shadow:0 0 0 0 rgba(74,222,128,0)} }
   .card { background:var(--card); border:1px solid var(--line); border-radius:14px; padding:24px; margin-bottom:22px; }
   h2 { font-size:17px; margin:0 0 14px; }
   textarea { width:100%; min-height:130px; padding:12px; border-radius:10px; border:1px solid var(--line);
@@ -65,11 +75,12 @@
   </header>
 
   <div class="stats">
-    <div class="stat"><b id="s-total">…</b><span>healthy in last scan</span></div>
-    <div class="stat"><b id="s-smtp">…</b><span>SMTP-capable</span></div>
-    <div class="stat"><b id="s-country">…</b><span>countries</span></div>
-    <div class="stat"><b>100</b><span>free checks / day</span></div>
+    <div class="stat"><span class="ico">🛡️</span><b id="s-total">…</b><span>healthy in last scan</span></div>
+    <div class="stat"><span class="ico">✉️</span><b id="s-smtp">…</b><span>SMTP-capable</span></div>
+    <div class="stat"><span class="ico">🌐</span><b id="s-country">…</b><span>countries</span></div>
+    <div class="stat"><span class="ico">🎁</span><b>100</b><span>free checks / day</span></div>
   </div>
+  <p class="stats-note"><span class="pulse"></span> Live data — our scanner re-verifies every proxy every 2 hours, around the clock.</p>
 
   <div class="card">
     <h2>🔍 Check your proxies — paste a whole list</h2>
@@ -99,6 +110,8 @@ http://5.6.7.8:3128
         <b>free-proxy-list.net</b><span>Web · the classic HTTP(S) list</span></a>
       <a class="src" href="https://geonode.com/free-proxy-list" target="_blank" rel="noopener">
         <b>GeoNode</b><span>Web + API · speed &amp; uptime metadata</span></a>
+      <a class="src" href="https://proxydb.net" target="_blank" rel="noopener">
+        <b>ProxyDB</b><span>Web · large database · protocol &amp; country filters</span></a>
     </div>
   </div>
 
