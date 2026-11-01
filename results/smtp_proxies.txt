@@ -1,221 +1,161 @@
-DigitalOcean, LLC (AS14061)  (8 proxies)
-  socks5://198.199.86.11:1080        MX-25        FAST      172ms
-  socks5://138.68.60.8:1080          MX-25        FAST      546ms
-  socks5://159.203.61.169:1080       MX-25        FAST      839ms
-  socks5://128.199.202.122:1080      MX-25        FAST     1832ms
-  http://94.183.206.215:8080         SUBMIT-587   FAST      177ms
-  http://178.62.79.141:3129          SUBMIT-587   MEDIUM    426ms   duplicate IP (2 ports, fastest)
-  socks5://45.74.31.46:4635          SUBMIT-587   FAST     2016ms
-  socks5://178.62.79.141:1088        SUBMIT-587   SLOW     3299ms   duplicate IP (2 ports)
-
-ITS Technology Group Limited (AS41354)  (1 proxies)
-  http://157.231.136.54:8088         MX-25        FAST      644ms
+DigitalOcean, LLC (AS14061)  (6 proxies)
+  socks5://198.199.86.11:1080        MX-25        FAST      426ms
+  socks5://209.97.150.167:1080       MX-25        MEDIUM    710ms
+  socks5://159.203.61.169:1080       MX-25        FAST      715ms
+  socks5://138.68.60.8:1080          MX-25        FAST      753ms
+  socks5://161.35.70.249:1080        MX-25        FAST     1068ms
+  socks5://128.199.202.122:1080      MX-25        FAST     1631ms
 
 DIGITALOCEAN (AS14061)  (1 proxies)
-  socks5://139.59.1.14:1080          MX-25        FAST     2008ms
-
-The Infrastructure Group B.V. (AS60404)  (5 proxies)
-  socks5://5.255.113.177:1080        SUBMIT-587   FAST      253ms
-  socks5://5.255.117.250:1080        SUBMIT-587   FAST      254ms
-  socks5://5.255.117.127:1080        SUBMIT-587   FAST      257ms
-  socks5://5.255.123.162:1080        SUBMIT-587   FAST      262ms
-  socks5://5.255.103.55:1080         SUBMIT-587   SLOW      802ms
-
-Microsoft Corporation (AS8075)  (5 proxies)
-  socks5://20.75.169.229:3006        SUBMIT-587   SLOW     1344ms   duplicate IP (2 ports, fastest)
-  socks5://20.75.169.229:3002        SUBMIT-587   MEDIUM   2182ms   duplicate IP (2 ports)
-  socks5://20.121.179.183:3003       SUBMIT-587   MEDIUM   5325ms   duplicate IP (2 ports, fastest)
-  socks5://20.121.179.183:3001       SUBMIT-587   SLOW     5409ms   duplicate IP (2 ports)
-  http://52.140.40.92:80             SUBMIT-465   MEDIUM   1633ms
-
-Alibaba.com LLC (AS45102)  (4 proxies)
-  socks5://47.80.63.214:1080         SUBMIT-587   FAST      840ms
-  socks5://47.80.15.108:1080         SUBMIT-587   MEDIUM   1432ms
-  socks5://47.80.63.0:1080           SUBMIT-587   MEDIUM   1452ms
-  http://47.91.65.23:3128            SUBMIT-465   FAST     1519ms
-
-Antbox Network Limited (AS138995)  (2 proxies)
-  socks5://45.194.33.12:30001        SUBMIT-587   MEDIUM   1282ms   duplicate IP (2 ports, fastest)
-  socks5://45.194.33.12:30002        SUBMIT-587   MEDIUM   1346ms   duplicate IP (2 ports)
-
-VietNam Post and Telecom Corporation (AS45899)  (2 proxies)
-  http://113.173.78.217:30457        SUBMIT-587   MEDIUM   1507ms   duplicate IP (2 ports, fastest)
-  socks5://113.173.78.217:40160      SUBMIT-587   MEDIUM   3146ms   duplicate IP (2 ports)
-
-Viettel Group (AS7552)  (2 proxies)
-  socks5://42.115.72.145:1088        SUBMIT-587   MEDIUM   2569ms   duplicate IP (2 ports, fastest)
-  socks5://42.115.72.145:1083        SUBMIT-587   MEDIUM   2577ms   duplicate IP (2 ports)
-
-Datacamp Limited (AS212238)  (2 proxies)
-  socks5://5.75.133.113:10814        SUBMIT-587   MEDIUM    472ms   duplicate IP (2 ports, fastest)
-  socks5://65.21.252.66:10814        SUBMIT-587   SLOW     2159ms   duplicate IP (2 ports)
-
-Korea Telecom (AS4766)  (2 proxies)
-  socks5://183.106.215.208:1080      SUBMIT-587   MEDIUM    724ms
-  socks5://121.169.46.116:1090       SUBMIT-587   MEDIUM    748ms
-
-UCLOUD INFORMATION TECHNOLOGY (HK) LIMITED (AS135377)  (2 proxies)
-  http://165.154.162.73:8888         SUBMIT-587   FAST     1210ms
-  socks5://123.58.219.171:10808      SUBMIT-587   MEDIUM   1508ms
-
-Orange CAM INTERNET (AS36912)  (2 proxies)
-  http://102.244.78.61:8081          SUBMIT-587   FAST      717ms   duplicate IP (2 ports, fastest)
-  http://102.244.78.61:8089          SUBMIT-587   FAST      730ms   duplicate IP (2 ports)
-
-CUONGKHANG (AS151858)  (2 proxies)
-  socks5://103.182.22.51:9000        SUBMIT-587   SLOW     5712ms
-  socks5://103.182.22.189:9000       SUBMIT-465   SLOW     5112ms
-
-Google LLC (AS396982)  (1 proxies)
-  socks5://34.150.120.78:1080        SUBMIT-587   MEDIUM   1526ms
-
-WORLD WIFI TELECOMUNICAÇÕES LTDA - ME (AS263966)  (1 proxies)
-  socks4://143.137.116.72:1080       SUBMIT-587   MEDIUM   1748ms
-
-Rainbow Network Limited (AS51847)  (1 proxies)
-  socks5://103.100.158.115:10809     SUBMIT-587   MEDIUM    772ms
-
-Shenzhen Tencent Computer Systems Company Limited (AS132203)  (1 proxies)
-  socks5://43.155.143.227:1080       SUBMIT-587   MEDIUM    535ms
-
-Alibaba (US) Technology Co., Ltd. (AS45102)  (1 proxies)
-  socks5://8.219.245.123:1080        SUBMIT-587   MEDIUM   1671ms
-
-Contabo GmbH (AS51167)  (1 proxies)
-  socks5://207.180.217.98:1088       SUBMIT-587   FAST      382ms
-
-Hostroyale Barcelona Network (AS203020)  (1 proxies)
-  socks5://65.21.252.66:10805        SUBMIT-587   MEDIUM    580ms   duplicate IP (2 ports, fastest)
-
-F.N.S. HOLDINGS LIMITED (AS206092)  (1 proxies)
-  socks5://5.75.133.113:10802        SUBMIT-587   MEDIUM   2318ms   duplicate IP (2 ports)
-
-Entel Chile S.A. (AS27651)  (1 proxies)
-  socks4://152.231.81.18:1080        SUBMIT-587   SLOW     3570ms
-
-Alibaba Cloud LLC (AS45102)  (1 proxies)
-  socks5://47.254.36.25:11080        SUBMIT-587   MEDIUM    255ms
-
-Hydra Communications Ltd (AS25369)  (1 proxies)
-  http://104.194.146.9:80            SUBMIT-587   FAST     1926ms
-
-ITI Karachi Multinet (AS9260)  (1 proxies)
-  socks4://202.142.170.115:1080      SUBMIT-587   MEDIUM    849ms
-
-JP HT d.d. Mostar (AS20875)  (1 proxies)
-  socks4://212.39.114.139:5678       SUBMIT-587   MEDIUM    716ms
-
-Almouroltec Servicos De Informatica E Internet LDA (AS24768)  (1 proxies)
-  socks5://49.13.22.249:10808        SUBMIT-587   SLOW      955ms
-
-ALGAR TELECOM S/A (AS28310)  (1 proxies)
-  socks4://189.39.118.210:5678       SUBMIT-587   SLOW     1000ms
-
-Dinas Komunikasi dan Informatisa Kabupaten OKU (AS138836)  (1 proxies)
-  http://103.137.176.12:3128         SUBMIT-587   FAST      873ms
-
-Cloudflare, Inc. (AS13335)  (1 proxies)
-  socks5://109.63.254.142:8080       SUBMIT-587   MEDIUM   4885ms
-
-Servicios y Telecomunicaciones S.A (AS27988)  (1 proxies)
-  socks4://198.12.37.25:1080         SUBMIT-587   SLOW     1546ms
-
-Florian Kolb (AS58087)  (1 proxies)
-  socks5://43.153.84.220:9050        SUBMIT-587   MEDIUM   1136ms
-
-Ranks ITT (AS23991)  (1 proxies)
-  socks4://202.40.177.94:5678        SUBMIT-587   SLOW      988ms
-
-Oracle Corporation (AS31898)  (1 proxies)
-  socks5://140.238.243.61:1080       SUBMIT-587   MEDIUM    883ms
-
-Agni Systems Limited (AS23923)  (1 proxies)
-  socks5://119.148.7.10:22122        SUBMIT-587   MEDIUM    984ms
+  socks5://139.59.1.14:1080          MX-25        FAST     1971ms
 
 Akamai Technologies, Inc. (AS63949)  (1 proxies)
-  http://94.249.180.231:8080         SUBMIT-587   SLOW     2933ms
+  socks5://139.162.78.109:1080       MX-25        FAST     1309ms
 
-Zenlayer Inc (AS135377)  (1 proxies)
-  http://45.43.60.220:8080           SUBMIT-587   FAST      636ms
+Cloudflare, Inc. (AS13335)  (3 proxies)
+  socks5://91.107.179.68:10809       SUBMIT-587   FAST      489ms
+  socks5://183.80.59.62:1083         SUBMIT-587   MEDIUM    942ms
+  socks5://158.220.101.43:1080       SUBMIT-587   MEDIUM   1493ms
 
-Association Osservatorio Nessuno ODV (AS214094)  (1 proxies)
-  socks5://37.18.73.60:5566          SUBMIT-587   FAST      665ms
+UCLOUD INFORMATION TECHNOLOGY (HK) LIMITED (AS135377)  (3 proxies)
+  socks5://101.36.104.239:10808      SUBMIT-587   MEDIUM    632ms
+  http://165.154.20.187:10808        SUBMIT-587   FAST     1188ms
+  socks5://123.58.219.171:10808      SUBMIT-587   FAST     1345ms
 
-Tipzor Media SRL (AS51177)  (1 proxies)
-  socks5://157.90.113.23:9052        SUBMIT-587   FAST      454ms
+The Infrastructure Group B.V. (AS60404)  (2 proxies)
+  socks5://5.255.117.127:1080        SUBMIT-587   FAST      336ms
+  socks5://5.255.123.162:1080        SUBMIT-587   FAST      337ms
 
-"Uzbektelekom" Joint Stock Company (AS8193)  (1 proxies)
-  http://195.158.8.123:3128          SUBMIT-587   MEDIUM   2623ms
+Korea Telecom (AS4766)  (2 proxies)
+  socks5://183.106.215.208:1080      SUBMIT-587   FAST      658ms
+  socks5://121.169.46.116:1090       SUBMIT-587   FAST      699ms
 
-PacketHub S.A. (AS147049)  (1 proxies)
-  http://77.42.95.221:8888           SUBMIT-587   MEDIUM    515ms
+Microsoft Corporation (AS8075)  (2 proxies)
+  socks5://20.121.179.183:3002       SUBMIT-587   SLOW     2550ms   duplicate IP (2 ports, fastest)
+  socks5://20.121.179.183:3001       SUBMIT-587   SLOW     3551ms   duplicate IP (2 ports)
 
-AT&T Enterprises, LLC (AS7018)  (1 proxies)
-  socks5://138.128.193.193:11080     SUBMIT-587   FAST     9959ms
+Leonet srl Empoli (AS15691)  (1 proxies)
+  socks5://212.77.75.25:1088         SUBMIT-587   MEDIUM    442ms
 
-DataWagon LLC (AS27176)  (1 proxies)
-  socks5://5.144.133.195:9050        SUBMIT-587   MEDIUM   1599ms
+Google LLC (AS396982)  (1 proxies)
+  socks5://34.150.120.78:1080        SUBMIT-587   MEDIUM   1845ms
+
+Church of Cyberology (AS215125)  (1 proxies)
+  socks5://37.18.73.60:5566          SUBMIT-587   MEDIUM    932ms
+
+Timeless Network Services Ltd (AS328555)  (1 proxies)
+  socks4://102.36.231.77:1080        SUBMIT-587   FAST     2893ms
+
+Alibaba (US) Technology Co., Ltd. (AS45102)  (1 proxies)
+  socks5://8.219.245.123:1080        SUBMIT-587   SLOW     1474ms
+
+BUCT (AS38623)  (1 proxies)
+  socks5://220.158.232.118:1080      SUBMIT-587   SLOW     4593ms
+
+Sudirman Central Business District (AS23953)  (1 proxies)
+  socks4://115.85.86.114:5678        SUBMIT-587   MEDIUM   3067ms
+
+Subisu Cablenet (AS4007)  (1 proxies)
+  socks4://182.93.75.162:1080        SUBMIT-587   SLOW     3896ms
+
+Oracle Corporation (AS31898)  (1 proxies)
+  socks5://140.238.243.61:1080       SUBMIT-587   MEDIUM    984ms
+
+Contabo GmbH (AS51167)  (1 proxies)
+  socks5://207.180.217.98:1088       SUBMIT-587   SLOW      693ms
+
+COREVANCE (AS219335)  (1 proxies)
+  socks5://46.161.49.174:10808       SUBMIT-587   SLOW     1318ms
+
+Zscaler ZRH1 (AS62044)  (1 proxies)
+  http://147.161.247.9:10242         SUBMIT-587   SLOW     8004ms
+
+ITS Technology Group Limited (AS41354)  (1 proxies)
+  http://157.231.136.54:8088         SUBMIT-587   MEDIUM    348ms
+
+Acessoline Telecomunicacoes Ltda (AS262391)  (1 proxies)
+  socks4://190.89.104.88:5432        SUBMIT-587   MEDIUM   3741ms
+
+LG DACOM KIDC (AS3786)  (1 proxies)
+  socks4://114.108.177.104:60984     SUBMIT-587   SLOW     1020ms
+
+ALGAR TELECOM S/A (AS28310)  (1 proxies)
+  socks4://189.39.118.210:5678       SUBMIT-587   FAST     4364ms
+
+Datacamp Limited (AS212238)  (1 proxies)
+  socks5://149.248.18.106:1081       SUBMIT-587   FAST     2403ms
+
+Dinas Komunikasi dan Informatisa Kabupaten OKU (AS138836)  (1 proxies)
+  http://103.137.176.12:3128         SUBMIT-587   MEDIUM   2322ms
+
+Frontier Communications Corporation (AS5650)  (1 proxies)
+  socks5://172.109.168.65:1080       SUBMIT-587   MEDIUM    465ms
+
+31173 Services AB (AS39351)  (1 proxies)
+  socks4://37.27.245.106:1080        SUBMIT-587   SLOW     8985ms
 
 Emerald Onion (AS396507)  (1 proxies)
-  socks5://51.15.253.45:8080         SUBMIT-587   MEDIUM    888ms
-
-Minium NET LLC (AS153391)  (1 proxies)
-  socks5://23.141.116.9:9000         SUBMIT-587   MEDIUM   2564ms
-
-Spectrum (AS11427)  (1 proxies)
-  socks5://72.131.213.139:1080       SUBMIT-587   SLOW     1234ms
-
-Microsoft Corporation (AS8069)  (1 proxies)
-  http://20.33.10.79:9443            SUBMIT-587   SLOW     4638ms
+  socks5://45.61.129.165:9050        SUBMIT-587   MEDIUM    782ms
 
 HostPapa (AS36352)  (1 proxies)
-  socks5://192.3.7.110:1080          SUBMIT-587   FAST      226ms
+  socks5://192.3.7.110:1080          SUBMIT-587   MEDIUM    214ms
 
-Ukrainian Data Network (AS207656)  (1 proxies)
-  socks5://45.61.129.165:9050        SUBMIT-587   MEDIUM    826ms
+TEVIA (AS39612)  (1 proxies)
+  socks5://80.248.53.90:1080         SUBMIT-587   SLOW      709ms
 
-Palestine Telecommunications Company (AS12975)  (1 proxies)
-  socks4://103.231.105.158:4145      SUBMIT-587   SLOW     2697ms
+EDN Sovintel (AS3216)  (1 proxies)
+  socks5://195.190.121.154:1080      SUBMIT-587   SLOW     3023ms
 
-TechTies Inc. (AS197170)  (1 proxies)
-  socks5://176.65.132.138:1080       SUBMIT-587   FAST     2325ms
+Southen Telecommunication Maintainer (AS25490)  (1 proxies)
+  socks5://62.183.30.20:1080         SUBMIT-587   MEDIUM    938ms
 
-Unified Layer (AS46606)  (1 proxies)
-  socks4://192.163.200.93:17071      SUBMIT-587   SLOW     5319ms
+MTS B2B Ekaterinburg (AS8359)  (1 proxies)
+  socks5://93.90.231.101:1080        SUBMIT-587   MEDIUM   5490ms
 
-Chinanet (AS4134)  (1 proxies)
-  http://219.148.171.178:9445        SUBMIT-587   MEDIUM   2615ms
+Comcast Cable Communications, LLC (AS7922)  (1 proxies)
+  socks5://50.242.55.85:1080         SUBMIT-587   MEDIUM   2512ms
+
+SURFnet III d (AS1101)  (3 proxies)
+  socks5://145.220.227.132:3128      SUBMIT-465   FAST      334ms   duplicate IP (2 ports, fastest)
+  socks5://145.220.227.164:4145      SUBMIT-465   FAST      345ms
+  socks4://145.220.227.132:1080      SUBMIT-465   FAST     2291ms   duplicate IP (2 ports)
+
+Amazon.com (AS16509)  (2 proxies)
+  socks5://18.217.248.118:59340      SUBMIT-465   FAST       60ms
+  socks5://56.228.13.15:1819         SUBMIT-465   FAST      366ms
 
 Link Egypt (Link.NET) (AS24863)  (2 proxies)
-  http://41.196.16.230:1981          SUBMIT-465   FAST      268ms
-  http://213.131.85.26:1981          SUBMIT-465   FAST      271ms
+  http://41.196.16.230:1976          SUBMIT-465   FAST      301ms   duplicate IP (2 ports, fastest)
+  http://41.196.16.230:1981          SUBMIT-465   FAST      303ms   duplicate IP (2 ports)
+
+LINKdotNET AS number (AS24863)  (2 proxies)
+  http://41.128.90.51:1981           SUBMIT-465   FAST      331ms   duplicate IP (2 ports, fastest)
+  http://41.128.90.51:1976           SUBMIT-465   MEDIUM    346ms   duplicate IP (2 ports)
+
+CUONGKHANG (AS151858)  (2 proxies)
+  socks5://103.182.22.200:9000       SUBMIT-465   MEDIUM   2344ms
+  socks5://103.182.22.197:9000       SUBMIT-465   SLOW     3398ms
 
 ReadyDedis, LLC (AS397966)  (1 proxies)
   socks5://193.25.215.182:22222      SUBMIT-465   FAST      298ms
 
-GNC (AS49800)  (1 proxies)
-  socks4://130.193.123.34:5678       SUBMIT-465   SLOW     1455ms
+ATSINDO (AS56233)  (1 proxies)
+  socks4://59.153.81.234:5678        SUBMIT-465   MEDIUM    664ms
 
 TE Data (AS8452)  (1 proxies)
-  http://41.33.126.136:1981          SUBMIT-465   FAST      286ms
+  http://41.33.245.139:1976          SUBMIT-465   FAST     2360ms
 
-Servitelconet Cia. Ltda. (AS271795)  (1 proxies)
-  http://190.12.150.244:999          SUBMIT-465   MEDIUM    228ms
-
-Comunicación por Fibra SA de CV (AS270111)  (1 proxies)
-  http://189.51.168.164:999          SUBMIT-465   SLOW      540ms
-
-Inetcom Carrier LLC (AS35598)  (1 proxies)
-  http://176.99.134.183:8090         SUBMIT-465   SLOW      801ms
+Shenzhen Tencent Computer Systems Company Limited (AS132203)  (1 proxies)
+  socks5://43.155.143.227:1080       SUBMIT-465   SLOW      465ms
 
 PT iForte Global Internet (AS17995)  (1 proxies)
-  http://202.150.89.242:3128         SUBMIT-465   MEDIUM    468ms
+  http://202.150.89.243:3128         SUBMIT-465   MEDIUM   2701ms
 
-HGC Global Communications Limited (AS9304)  (1 proxies)
-  socks5://45.149.92.160:1080        SUBMIT-465   FAST      602ms
+City Online Ltd (AS136224)  (1 proxies)
+  socks5://202.91.41.102:1080        SUBMIT-465   MEDIUM   4840ms
 
-DataCamp Limited (AS60068)  (1 proxies)
-  http://159.194.228.40:8888         SUBMIT-465   MEDIUM   8374ms
+Intersvyaz-2 JSC (AS8369)  (1 proxies)
+  socks5://78.29.56.178:1080         SUBMIT-465   MEDIUM   1910ms
 
-Host Universal Pty Ltd (AS136557)  (1 proxies)
-  socks5://103.192.80.81:1088        SUBMIT-465   SLOW     1352ms
+Inetcom Carrier LLC (AS35598)  (1 proxies)
+  http://176.99.134.183:8090         SUBMIT-465   MEDIUM   1849ms
