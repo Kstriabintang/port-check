@@ -1,288 +1,198 @@
 PROXY                   TYPE    SPEED   LATENCY  SMTP  ROUTE        COUNTRY         NETWORK     
 ------------------------------------------------------------------------------------------------
-209.97.150.167:1080     SOCKS5  FAST    55ms     yes   MX-25        United States   Datacenter  
-138.68.60.8:1080        SOCKS5  FAST    249ms    yes   MX-25        United States   Datacenter  
-139.59.1.14:1080        SOCKS5  FAST    842ms    yes   MX-25        India           Datacenter  
-59.153.81.234:5678      SOCKS4  MEDIUM  1095ms   yes   MX-25        Indonesia       Residential 
-142.93.65.222:3129      HTTP    FAST    38ms     yes   SUBMIT-587   United States   Datacenter  
-130.61.203.78:443       SOCKS5  FAST    371ms    yes   SUBMIT-587   Germany         Datacenter  
-94.183.206.215:8080     HTTP    FAST    375ms    yes   SUBMIT-587   The Netherlands Datacenter  
-31.58.144.19:1080       SOCKS5  FAST    380ms    yes   SUBMIT-587   Germany         Residential 
-47.245.165.201:1080     SOCKS5  FAST    439ms    yes   SUBMIT-587   Germany         Datacenter  
-91.107.179.68:10809     SOCKS5  FAST    442ms    yes   SUBMIT-587   Germany         Residential 
-200.108.50.254:4145     SOCKS4  FAST    442ms    yes   SUBMIT-587   Panama          Residential 
-181.236.221.138:4145    SOCKS4  FAST    458ms    yes   SUBMIT-587   Colombia        Residential 
-209.50.255.91:1080      SOCKS5  FAST    467ms    yes   SUBMIT-587   United States   Datacenter  
-213.173.75.222:5678     SOCKS4  FAST    473ms    yes   SUBMIT-587   Austria         Residential 
-84.200.89.140:1080      SOCKS5  FAST    508ms    yes   SUBMIT-587   Germany         Datacenter  
-195.135.255.98:1080     SOCKS5  FAST    533ms    yes   SUBMIT-587   Latvia          Datacenter  
-23.254.233.221:1080     SOCKS5  FAST    552ms    yes   SUBMIT-587   United States   Datacenter  
-5.255.123.162:1080      SOCKS5  FAST    568ms    yes   SUBMIT-587   The Netherlands Datacenter  
-109.69.211.18:1080      SOCKS4  FAST    569ms    yes   SUBMIT-587   Czechia         Residential 
-194.87.96.31:1080       SOCKS5  FAST    587ms    yes   SUBMIT-587   Switzerland     Residential 
-212.77.75.25:1088       SOCKS5  FAST    639ms    yes   SUBMIT-587   Italy           Datacenter  
-165.16.45.200:1080      SOCKS4  FAST    645ms    yes   SUBMIT-587   Libya           Residential 
-179.189.219.98:4145     SOCKS4  FAST    709ms    yes   SUBMIT-587   Paraguay        Residential 
-80.191.46.62:1099       SOCKS4  FAST    712ms    yes   SUBMIT-587   Iran            Residential 
-138.255.240.66:40736    SOCKS4  FAST    723ms    yes   SUBMIT-587   Brazil          Residential 
-78.187.157.235:1080     SOCKS5  FAST    730ms    yes   SUBMIT-587   Türkiye         Residential 
-102.36.231.77:1080      SOCKS4  FAST    744ms    yes   SUBMIT-587   Nigeria         Residential 
-45.117.228.97:4145      SOCKS4  FAST    753ms    yes   SUBMIT-587   Malaysia        Residential 
-103.197.242.106:1080    SOCKS4  FAST    784ms    yes   SUBMIT-587   Cambodia        Residential 
-189.39.118.210:5678     SOCKS4  FAST    832ms    yes   SUBMIT-587   Brazil          Residential 
-103.154.76.90:12        SOCKS4  FAST    858ms    yes   SUBMIT-587   Indonesia       Residential 
-117.4.26.246:1080       SOCKS4  FAST    901ms    yes   SUBMIT-587   Vietnam         Residential 
-112.121.173.84:1080     SOCKS5  FAST    984ms    yes   SUBMIT-587   Hong Kong       Datacenter  
-45.61.129.165:9050      SOCKS5  FAST    986ms    yes   SUBMIT-587   Sweden          Datacenter  
-94.230.127.180:1080     SOCKS5  FAST    994ms    yes   SUBMIT-587   Russia          Residential 
-78.109.137.53:1080      SOCKS5  MEDIUM  1007ms   yes   SUBMIT-587   Russia          Residential 
-154.79.251.168:1080     SOCKS4  MEDIUM  1012ms   yes   SUBMIT-587   Kenya           Residential 
-180.222.187.50:10800    SOCKS5  MEDIUM  1018ms   yes   SUBMIT-587   Japan           Residential 
-198.46.87.212:3128      SOCKS5  MEDIUM  1078ms   yes   SUBMIT-587   United States   Datacenter  
-209.182.199.206:3128    SOCKS5  MEDIUM  1084ms   yes   SUBMIT-587   United States   Datacenter  
-46.249.102.207:1080     SOCKS5  MEDIUM  1099ms   yes   SUBMIT-587   Germany         Residential 
-140.238.243.61:1080     SOCKS5  MEDIUM  1121ms   yes   SUBMIT-587   India           Datacenter  
-163.223.37.71:1080      SOCKS4  MEDIUM  1149ms   yes   SUBMIT-587   Indonesia       Residential 
-122.252.179.66:5678     SOCKS4  MEDIUM  1150ms   yes   SUBMIT-587   Cambodia        Residential 
-102.244.78.61:8081      HTTP    MEDIUM  1160ms   yes   SUBMIT-587   Cameroon        Mobile      
-183.80.59.62:1083       SOCKS5  MEDIUM  1187ms   yes   SUBMIT-587   Vietnam         Residential 
-102.244.78.61:8089      HTTP    MEDIUM  1187ms   yes   SUBMIT-587   Cameroon        Mobile      
-196.0.111.194:48009     SOCKS4  MEDIUM  1256ms   yes   SUBMIT-587   Uganda          Residential 
-101.36.104.239:10808    SOCKS5  MEDIUM  1317ms   yes   SUBMIT-587   Japan           Datacenter  
-103.182.22.187:9000     SOCKS5  MEDIUM  1378ms   yes   SUBMIT-587   Vietnam         Residential 
-103.43.191.71:8888      HTTP    MEDIUM  1600ms   yes   SUBMIT-587   Hong Kong       Residential 
-119.148.7.10:22122      SOCKS5  MEDIUM  1636ms   yes   SUBMIT-587   Bangladesh      Residential 
-103.87.81.86:5678       SOCKS4  MEDIUM  1773ms   yes   SUBMIT-587   Indonesia       Residential 
-189.50.138.10:5678      SOCKS4  MEDIUM  1774ms   yes   SUBMIT-587   Brazil          Residential 
-41.223.234.116:37259    SOCKS4  MEDIUM  1827ms   yes   SUBMIT-587   Burkina Faso    Residential 
-219.148.171.178:9445    HTTP    MEDIUM  1923ms   yes   SUBMIT-587   China           Residential 
-42.115.72.145:1062      SOCKS5  MEDIUM  1934ms   yes   SUBMIT-587   Vietnam         Residential 
-5.255.117.127:1080      SOCKS5  MEDIUM  2041ms   yes   SUBMIT-587   The Netherlands Datacenter  
-149.104.24.86:40001     SOCKS5  MEDIUM  2213ms   yes   SUBMIT-587   Hong Kong       Residential 
-36.90.222.21:4153       SOCKS4  MEDIUM  2226ms   yes   SUBMIT-587   Indonesia       Residential 
-121.169.46.116:1090     SOCKS5  MEDIUM  2281ms   yes   SUBMIT-587   South Korea     Residential 
-49.13.22.249:10806      SOCKS5  MEDIUM  2451ms   yes   SUBMIT-587   Czechia         Datacenter  
-222.111.130.73:8080     HTTP    MEDIUM  2629ms   yes   SUBMIT-587   South Korea     Residential 
-42.115.72.145:1084      SOCKS5  MEDIUM  2740ms   yes   SUBMIT-587   Vietnam         Residential 
-124.248.164.36:1080     SOCKS4  MEDIUM  2825ms   yes   SUBMIT-587   Cambodia        Residential 
-179.189.246.165:5432    SOCKS4  MEDIUM  2868ms   yes   SUBMIT-587   Brazil          Residential 
-103.137.148.253:1080    SOCKS4  MEDIUM  2898ms   yes   SUBMIT-587   India           Residential 
-202.40.179.18:4145      SOCKS4  MEDIUM  2932ms   yes   SUBMIT-587   Bangladesh      Residential 
-103.153.40.194:4145     SOCKS4  SLOW    3120ms   yes   SUBMIT-587   Indonesia       Residential 
-37.18.73.60:5566        SOCKS5  SLOW    3199ms   yes   SUBMIT-587   United States   Datacenter  
-182.253.144.20:4153     SOCKS4  SLOW    3220ms   yes   SUBMIT-587   Indonesia       Residential 
-93.115.174.1:1080       SOCKS4  SLOW    3533ms   yes   SUBMIT-587   Romania         Residential 
-5.255.113.177:1080      SOCKS5  SLOW    3589ms   yes   SUBMIT-587   The Netherlands Datacenter  
-183.106.215.208:1080    SOCKS5  SLOW    4147ms   yes   SUBMIT-587   South Korea     Residential 
-156.225.31.18:7890      SOCKS5  SLOW    5632ms   yes   SUBMIT-587   Hong Kong       Datacenter  
-37.27.245.106:1080      SOCKS4  SLOW    5641ms   yes   SUBMIT-587   Sweden          Datacenter  
-220.158.232.118:1080    SOCKS5  BAD     6321ms   yes   SUBMIT-587   Cambodia        Mobile      
-144.202.119.178:1080    SOCKS5  BAD     6550ms   yes   SUBMIT-587   United States   Datacenter  
-107.174.30.92:1080      SOCKS5  BAD     6741ms   yes   SUBMIT-587   United States   Datacenter  
-45.90.13.176:1080       SOCKS4  BAD     7034ms   yes   SUBMIT-587   Germany         Datacenter  
-65.21.252.66:10802      SOCKS5  BAD     7352ms   yes   SUBMIT-587   Sweden          Residential 
-49.13.22.249:10813      SOCKS5  BAD     9313ms   yes   SUBMIT-587   Romania         Datacenter  
-103.237.102.191:11111   HTTP    BAD     10459ms  yes   SUBMIT-587   Germany         Residential 
-72.167.143.171:10001    SOCKS5  FAST    299ms    yes   SUBMIT-465   United States   Datacenter  
-217.52.247.69:1976      HTTP    FAST    318ms    yes   SUBMIT-465   Egypt           Residential 
-41.196.16.230:1976      HTTP    FAST    330ms    yes   SUBMIT-465   Egypt           Residential 
-41.33.245.139:1976      HTTP    FAST    333ms    yes   SUBMIT-465   Egypt           Residential 
-193.25.215.182:22222    SOCKS5  FAST    400ms    yes   SUBMIT-465   United States   Residential 
-197.164.101.12:1981     HTTP    FAST    426ms    yes   SUBMIT-465   Egypt           Residential 
-45.245.208.180:8080     HTTP    FAST    520ms    yes   SUBMIT-465   Egypt           Residential 
-197.164.101.14:1976     HTTP    FAST    530ms    yes   SUBMIT-465   Egypt           Residential 
-176.9.107.170:1081      SOCKS5  FAST    554ms    yes   SUBMIT-465   North Macedonia Datacenter  
-177.234.217.93:999      HTTP    FAST    762ms    yes   SUBMIT-465   Ecuador         Residential 
-159.223.167.188:10000   SOCKS5  MEDIUM  1057ms   yes   SUBMIT-465   United States   Datacenter  
-176.99.134.183:8090     HTTP    MEDIUM  1131ms   yes   SUBMIT-465   Russia          Residential 
-197.164.101.13:1981     HTTP    MEDIUM  1406ms   yes   SUBMIT-465   Egypt           Residential 
-190.12.150.244:999      HTTP    MEDIUM  1551ms   yes   SUBMIT-465   Ecuador         Residential 
-84.36.141.180:1981      HTTP    MEDIUM  1607ms   yes   SUBMIT-465   Egypt           Residential 
-200.62.236.154:999      HTTP    SLOW    3355ms   yes   SUBMIT-465   Peru            Residential 
-195.226.213.254:8888    HTTP    SLOW    3400ms   yes   SUBMIT-465   Ukraine         Residential 
-103.158.236.132:8080    HTTP    SLOW    4183ms   yes   SUBMIT-465   Pakistan        Residential 
-151.237.84.9:8080       HTTP    SLOW    4812ms   yes   SUBMIT-465   Bulgaria        Residential 
-38.41.27.150:11201      HTTP    SLOW    5034ms   yes   SUBMIT-465   Venezuela       Residential 
-181.209.98.106:1080     SOCKS4  SLOW    5064ms   yes   SUBMIT-465   Argentina       Residential 
-152.70.237.238:3128     SOCKS4  SLOW    5211ms   yes   SUBMIT-465   South Korea     Residential 
-45.65.226.172:999       HTTP    SLOW    5215ms   yes   SUBMIT-465   Argentina       Residential 
-190.61.37.142:999       HTTP    SLOW    5414ms   yes   SUBMIT-465   Honduras        Residential 
-195.170.193.170:10808   SOCKS5  SLOW    5942ms   yes   SUBMIT-465   The Netherlands Datacenter  
-65.21.252.66:10806      SOCKS5  BAD     7848ms   yes   SUBMIT-465   United States   Residential 
-142.93.202.130:3128     HTTP    FAST    37ms     no    -            United States   Datacenter  
-174.138.119.88:80       HTTP    FAST    40ms     no    -            United States   Datacenter  
-167.99.236.14:80        HTTP    FAST    75ms     no    -            United States   Datacenter  
-130.127.204.197:8080    HTTP    FAST    81ms     no    -            United States   Residential 
-137.66.1.45:80          HTTP    FAST    81ms     no    -            United States   Datacenter  
-34.44.49.215:80         HTTP    FAST    117ms    no    -            United States   Datacenter  
-143.198.135.176:80      HTTP    FAST    149ms    no    -            United States   Datacenter  
-109.199.119.160:80      HTTP    FAST    185ms    no    -            France          Datacenter  
-195.26.224.135:80       HTTP    FAST    189ms    no    -            The Netherlands Datacenter  
-69.55.49.177:38182      SOCKS5  FAST    195ms    no    -            United States   Datacenter  
-188.165.199.207:80      HTTP    FAST    203ms    no    -            France          Datacenter  
-207.180.254.198:8080    HTTP    FAST    213ms    no    -            France          Datacenter  
-185.85.111.18:80        HTTP    FAST    220ms    no    -            Switzerland     Residential 
-176.111.37.216:39811    HTTP    FAST    249ms    no    -            Hong Kong       Residential 
-176.111.37.5:39811      HTTP    FAST    252ms    no    -            Hong Kong       Residential 
-195.114.209.50:80       HTTP    FAST    269ms    no    -            Spain           Datacenter  
-202.133.88.173:80       HTTP    FAST    287ms    no    -            France          Residential 
-45.40.136.39:45741      SOCKS5  FAST    291ms    no    -            United States   Datacenter  
-45.189.57.114:3129      HTTP    FAST    293ms    no    -            Ecuador         Residential 
-5.42.97.67:8080         HTTP    FAST    294ms    no    -            The Netherlands Datacenter  
-107.181.161.81:4145     SOCKS5  FAST    303ms    no    -            United States   Datacenter  
-67.201.58.190:4145      SOCKS5  FAST    304ms    no    -            United States   Residential 
-199.116.114.11:4145     SOCKS5  FAST    306ms    no    -            United States   Datacenter  
-68.71.249.158:4145      SOCKS5  FAST    306ms    no    -            United States   Residential 
-142.54.232.6:4145       SOCKS5  FAST    312ms    no    -            United States   Datacenter  
-51.75.206.209:80        HTTP    FAST    312ms    no    -            France          Datacenter  
-104.200.135.46:4145     SOCKS5  FAST    329ms    no    -            United States   Datacenter  
-142.54.228.193:4145     SOCKS5  FAST    331ms    no    -            United States   Datacenter  
-199.187.210.54:4145     SOCKS5  FAST    332ms    no    -            United States   Datacenter  
-67.201.35.145:4145      SOCKS5  FAST    332ms    no    -            United States   Residential 
-199.102.104.70:4145     SOCKS5  FAST    332ms    no    -            United States   Residential 
-142.54.231.38:4145      SOCKS5  FAST    333ms    no    -            United States   Datacenter  
-41.33.245.139:1981      HTTP    FAST    334ms    no    -            Egypt           Residential 
-68.71.242.118:4145      SOCKS5  FAST    335ms    no    -            United States   Residential 
-68.71.240.210:4145      SOCKS5  FAST    338ms    no    -            United States   Residential 
-67.201.39.14:4145       SOCKS5  FAST    339ms    no    -            United States   Residential 
-184.170.249.65:4145     SOCKS5  FAST    350ms    no    -            United States   Datacenter  
-185.135.69.34:80        HTTP    FAST    350ms    no    -            Iraq            Residential 
-192.252.211.197:14921   SOCKS5  FAST    351ms    no    -            United States   Datacenter  
-199.58.185.9:4145       SOCKS5  FAST    351ms    no    -            United States   Datacenter  
-192.252.210.233:4145    SOCKS5  FAST    351ms    no    -            United Kingdom  Datacenter  
-192.111.137.35:4145     SOCKS5  FAST    353ms    no    -            United States   Datacenter  
-192.252.214.17:4145     SOCKS5  FAST    353ms    no    -            United States   Datacenter  
-192.111.139.163:19404   SOCKS5  FAST    355ms    no    -            United States   Datacenter  
-216.105.128.144:4145    SOCKS5  FAST    356ms    no    -            United States   Residential 
-184.170.251.30:11288    SOCKS5  FAST    357ms    no    -            United States   Datacenter  
-192.252.214.20:15864    SOCKS5  FAST    358ms    no    -            United States   Datacenter  
-199.66.182.232:4145     SOCKS5  FAST    362ms    no    -            United States   Residential 
-192.252.211.193:4145    SOCKS5  FAST    362ms    no    -            United States   Datacenter  
-216.105.130.131:4145    SOCKS5  FAST    366ms    no    -            United States   Residential 
-192.252.216.86:4145     SOCKS5  FAST    367ms    no    -            United States   Datacenter  
-140.238.32.108:3128     HTTP    FAST    373ms    no    -            Japan           Datacenter  
-199.66.183.251:4145     SOCKS5  FAST    379ms    no    -            United States   Residential 
-192.111.129.150:4145    SOCKS5  FAST    381ms    no    -            United States   Datacenter  
-199.66.182.243:4145     SOCKS5  FAST    383ms    no    -            United States   Residential 
-216.105.143.146:4145    SOCKS5  FAST    386ms    no    -            United States   Residential 
-199.66.183.226:4145     SOCKS5  FAST    392ms    no    -            United States   Residential 
-188.68.52.45:80         HTTP    FAST    402ms    no    -            Germany         Datacenter  
-212.127.95.235:8081     HTTP    FAST    415ms    no    -            Poland          Residential 
-196.1.93.16:80          HTTP    FAST    439ms    no    -            Senegal         Residential 
-172.237.41.254:9999     HTTP    FAST    445ms    no    -            India           Datacenter  
-97.74.87.226:80         HTTP    FAST    448ms    no    -            Japan           Datacenter  
-43.160.222.70:3128      HTTP    FAST    449ms    no    -            Singapore       Datacenter  
-4.144.146.21:80         HTTP    FAST    453ms    no    -            Singapore       Datacenter  
-130.110.103.245:3128    HTTP    FAST    475ms    no    -            Saudi Arabia    Datacenter  
-70.166.167.55:57745     SOCKS5  FAST    476ms    no    -            United States   Residential 
-72.214.108.67:4145      SOCKS5  FAST    477ms    no    -            United States   Residential 
-24.249.199.12:4145      SOCKS5  FAST    477ms    no    -            United States   Residential 
-98.191.0.37:4145        SOCKS5  FAST    477ms    no    -            United States   Residential 
-184.178.172.28:15294    SOCKS5  FAST    477ms    no    -            United States   Residential 
-184.178.172.18:15280    SOCKS5  FAST    478ms    no    -            United States   Residential 
-184.181.178.33:4145     SOCKS5  FAST    478ms    no    -            United States   Residential 
-72.195.101.99:4145      SOCKS5  FAST    479ms    no    -            United States   Residential 
-70.166.65.160:4145      SOCKS5  FAST    479ms    no    -            United States   Residential 
-98.188.47.150:4145      SOCKS5  FAST    480ms    no    -            United States   Residential 
-72.205.0.67:4145        SOCKS5  FAST    480ms    no    -            United States   Residential 
-98.181.137.80:4145      SOCKS5  FAST    481ms    no    -            United States   Residential 
-72.195.114.169:4145     SOCKS5  FAST    481ms    no    -            United States   Residential 
-72.195.34.41:4145       SOCKS5  FAST    481ms    no    -            United States   Residential 
-72.195.34.35:27360      SOCKS5  FAST    482ms    no    -            United States   Residential 
-66.151.34.89:80         HTTP    FAST    482ms    no    -            Finland         Datacenter  
-98.175.31.195:4145      SOCKS5  FAST    482ms    no    -            United States   Residential 
-98.170.57.231:4145      SOCKS5  FAST    483ms    no    -            United States   Residential 
-72.195.114.184:4145     SOCKS5  FAST    484ms    no    -            United States   Residential 
-98.178.72.21:10919      SOCKS5  FAST    484ms    no    -            United States   Residential 
-184.178.172.11:4145     SOCKS5  FAST    484ms    no    -            United States   Residential 
-72.195.34.42:4145       SOCKS5  FAST    484ms    no    -            United States   Residential 
-98.182.147.97:4145      SOCKS5  FAST    485ms    no    -            United States   Residential 
-98.188.47.132:4145      SOCKS5  FAST    486ms    no    -            United States   Residential 
-184.178.172.5:15303     SOCKS5  FAST    486ms    no    -            United States   Residential 
-174.77.111.196:4145     SOCKS5  FAST    489ms    no    -            United States   Residential 
-72.195.34.59:4145       SOCKS5  FAST    489ms    no    -            United States   Residential 
-68.1.210.163:4145       SOCKS5  FAST    490ms    no    -            United States   Residential 
-174.75.211.193:4145     SOCKS5  FAST    490ms    no    -            United States   Residential 
-72.195.34.58:4145       SOCKS5  FAST    490ms    no    -            United States   Residential 
-98.181.137.83:4145      SOCKS5  FAST    493ms    no    -            United States   Residential 
-174.77.111.197:4145     SOCKS5  FAST    494ms    no    -            United States   Residential 
-70.166.167.38:57728     SOCKS5  FAST    495ms    no    -            United States   Residential 
-184.178.172.25:15291    SOCKS5  FAST    495ms    no    -            United States   Residential 
-103.65.237.92:5678      HTTP    FAST    500ms    no    -            Indonesia       Residential 
-196.1.97.198:80         HTTP    FAST    502ms    no    -            Senegal         Residential 
-165.154.7.156:8888      HTTP    FAST    502ms    no    -            Hong Kong       Datacenter  
-174.75.211.222:4145     SOCKS5  FAST    526ms    no    -            United States   Residential 
-184.182.240.12:4145     SOCKS5  FAST    531ms    no    -            United States   Residential 
-138.68.235.51:80        HTTP    FAST    544ms    no    -            United States   Datacenter  
-112.198.22.122:80       HTTP    FAST    545ms    no    -            Philippines     Residential 
-219.93.101.62:80        HTTP    FAST    562ms    no    -            Malaysia        Residential 
-219.93.101.63:80        HTTP    FAST    569ms    no    -            Malaysia        Residential 
-165.154.162.73:8888     HTTP    FAST    572ms    no    -            United States   Datacenter  
-219.93.101.60:80        HTTP    FAST    578ms    no    -            Malaysia        Residential 
-203.19.38.114:1080      HTTP    FAST    582ms    no    -            Hong Kong       Residential 
-195.62.49.84:10808      SOCKS5  FAST    582ms    no    -            Germany         Datacenter  
-115.127.31.66:8080      HTTP    FAST    618ms    no    -            Bangladesh      Residential 
-120.232.115.57:17981    HTTP    FAST    643ms    no    -            China           Mobile      
-72.49.49.11:31034       SOCKS5  FAST    717ms    no    -            United States   Residential 
-183.110.216.159:8090    HTTP    FAST    723ms    no    -            South Korea     Residential 
-185.191.239.248:3128    HTTP    FAST    751ms    no    -            Switzerland     Residential 
-66.42.224.229:41679     SOCKS5  FAST    806ms    no    -            United States   Residential 
-216.68.128.121:4145     SOCKS5  FAST    867ms    no    -            United States   Residential 
-119.188.131.55:17981    HTTP    FAST    912ms    no    -            China           Residential 
-61.158.175.38:9002      HTTP    FAST    960ms    no    -            China           Residential 
-41.128.77.76:1976       HTTP    FAST    972ms    no    -            Egypt           Residential 
-184.185.2.12:4145       SOCKS5  FAST    975ms    no    -            United States   Residential 
-160.20.36.109:80        SOCKS4  MEDIUM  1112ms   no    -            Indonesia       Residential 
-117.102.115.158:4153    SOCKS4  MEDIUM  1118ms   no    -            Indonesia       Residential 
-190.131.205.150:999     HTTP    MEDIUM  1133ms   no    -            Colombia        Residential 
-82.180.146.251:10800    SOCKS5  MEDIUM  1148ms   no    -            India           Datacenter  
-208.102.51.6:58208      SOCKS5  MEDIUM  1182ms   no    -            United States   Residential 
-101.36.104.46:10808     SOCKS5  MEDIUM  1237ms   no    -            Japan           Datacenter  
-152.67.191.232:6800     HTTP    MEDIUM  1499ms   no    -            India           Datacenter  
-184.182.240.211:4145    SOCKS5  MEDIUM  1538ms   no    -            United States   Residential 
-45.74.31.42:4877        SOCKS5  MEDIUM  1550ms   no    -            Singapore       Datacenter  
-69.61.200.104:36181     SOCKS5  MEDIUM  1775ms   no    -            United States   Residential 
-198.244.254.77:3128     HTTP    MEDIUM  1846ms   no    -            United Kingdom  Residential 
-123.58.219.171:10808    SOCKS5  MEDIUM  1973ms   no    -            Hong Kong       Datacenter  
-188.226.27.24:1080      SOCKS5  MEDIUM  2054ms   no    -            The Netherlands Datacenter  
-37.187.109.70:10111     HTTP    MEDIUM  2347ms   no    -            France          Datacenter  
-174.64.199.82:4145      SOCKS5  MEDIUM  2561ms   no    -            United States   Residential 
-193.218.118.128:1080    SOCKS5  MEDIUM  2616ms   no    -            Australia       Datacenter  
-203.99.63.97:1080       SOCKS5  MEDIUM  2657ms   no    -            Pakistan        Residential 
-142.93.226.64:3128      HTTP    MEDIUM  2990ms   no    -            The Netherlands Datacenter  
-85.214.107.177:80       HTTP    SLOW    3420ms   no    -            Germany         Datacenter  
-183.110.216.159:8091    HTTP    SLOW    3804ms   no    -            South Korea     Residential 
-103.213.97.78:80        HTTP    SLOW    3864ms   no    -            China           Residential 
-61.216.156.222:60808    HTTP    SLOW    3892ms   no    -            Taiwan          Residential 
-5.75.133.113:10803      SOCKS5  SLOW    4477ms   no    -            United Kingdom  Datacenter  
-85.119.74.86:1080       SOCKS5  SLOW    4890ms   no    -            Russia          Residential 
-206.135.47.107:999      HTTP    SLOW    4895ms   no    -            Mexico          Residential 
-8.219.97.248:80         HTTP    SLOW    4903ms   no    -            Singapore       Datacenter  
-36.95.189.165:5678      SOCKS4  SLOW    4914ms   no    -            Indonesia       Residential 
-213.199.47.140:1080     SOCKS5  SLOW    5296ms   no    -            France          Datacenter  
-41.190.157.162:3128     HTTP    SLOW    5317ms   no    -            Uganda          Residential 
-114.111.151.41:80       HTTP    SLOW    5441ms   no    -            Australia       Datacenter  
-138.122.250.25:8080     HTTP    SLOW    5629ms   no    -            Brazil          Residential 
-119.73.109.210:1080     SOCKS5  SLOW    5649ms   no    -            Pakistan        Residential 
-111.90.143.197:60808    HTTP    SLOW    5912ms   no    -            Malaysia        Datacenter  
-47.252.18.37:8090       SOCKS5  BAD     6016ms   no    -            United Kingdom  Residential 
-47.251.87.74:8000       SOCKS5  BAD     6128ms   no    -            United Kingdom  Residential 
-8.220.205.172:9000      SOCKS5  BAD     6349ms   no    -            United Kingdom  Residential 
-8.220.204.215:5060      SOCKS5  BAD     6351ms   no    -            United Kingdom  Residential 
-47.238.130.212:1080     SOCKS5  BAD     6406ms   no    -            United Kingdom  Residential 
-47.76.144.139:800       SOCKS5  BAD     6413ms   no    -            United Kingdom  Residential 
-8.215.12.103:3129       SOCKS5  BAD     6477ms   no    -            United Kingdom  Residential 
-8.213.222.157:443       SOCKS5  BAD     6505ms   no    -            United Kingdom  Residential 
-8.220.136.174:8084      SOCKS5  BAD     6506ms   no    -            United Kingdom  Residential 
-47.121.182.88:8090      SOCKS5  BAD     6511ms   no    -            United Kingdom  Residential 
-138.121.114.54:8080     HTTP    BAD     6910ms   no    -            Argentina       Residential 
-186.250.52.254:1080     SOCKS5  BAD     6937ms   no    -            Brazil          Residential 
-103.182.22.221:9000     SOCKS5  BAD     9724ms   no    -            Vietnam         Residential 
-45.91.248.107:80        HTTP    BAD     10064ms  no    -            United States   Residential 
-8.221.139.222:8081      SOCKS5  BAD     10073ms  no    -            United Kingdom  Residential 
-195.201.246.53:1093     SOCKS5  BAD     10538ms  no    -            France          Datacenter  
-171.25.158.95:1080      SOCKS5  BAD     10719ms  no    -            Sweden          Residential 
-195.201.246.53:1086     SOCKS5  BAD     11798ms  no    -            United States   Datacenter  
-172.85.99.53:16062      HTTP    BAD     12040ms  no    -            United States   Datacenter  
+138.68.60.8:1080        SOCKS5  FAST    42ms     yes   MX-25        United States   Datacenter  
+198.199.86.11:1080      SOCKS5  FAST    278ms    yes   MX-25        United States   Datacenter  
+209.97.150.167:1080     SOCKS5  FAST    282ms    yes   MX-25        United States   Datacenter  
+159.203.61.169:1080     SOCKS5  FAST    345ms    yes   MX-25        Canada          Datacenter  
+134.209.29.120:1080     SOCKS5  FAST    539ms    yes   MX-25        United Kingdom  Datacenter  
+161.35.70.249:1080      SOCKS5  FAST    615ms    yes   MX-25        Germany         Datacenter  
+139.59.1.14:1080        SOCKS5  FAST    985ms    yes   MX-25        India           Datacenter  
+165.154.162.73:8888     HTTP    FAST    49ms     yes   SUBMIT-587   United States   Datacenter  
+142.93.65.222:3129      HTTP    FAST    205ms    yes   SUBMIT-587   United States   Datacenter  
+104.219.55.50:8118      HTTP    FAST    264ms    yes   SUBMIT-587   United States   Residential 
+23.254.233.221:1080     SOCKS5  FAST    295ms    yes   SUBMIT-587   United States   Datacenter  
+148.113.175.17:1090     SOCKS5  FAST    306ms    yes   SUBMIT-587   Canada          Datacenter  
+180.222.187.50:10800    SOCKS5  FAST    563ms    yes   SUBMIT-587   Japan           Residential 
+101.36.104.46:10808     SOCKS5  FAST    586ms    yes   SUBMIT-587   Japan           Datacenter  
+157.90.113.23:9052      SOCKS5  FAST    711ms    yes   SUBMIT-587   The Netherlands Datacenter  
+159.192.121.240:4145    SOCKS4  FAST    713ms    yes   SUBMIT-587   Thailand        Residential 
+5.255.123.162:1080      SOCKS5  FAST    758ms    yes   SUBMIT-587   The Netherlands Datacenter  
+5.255.113.177:1080      SOCKS5  FAST    762ms    yes   SUBMIT-587   The Netherlands Datacenter  
+102.244.78.61:8086      HTTP    FAST    776ms    yes   SUBMIT-587   Cameroon        Mobile      
+5.255.117.127:1080      SOCKS5  FAST    784ms    yes   SUBMIT-587   The Netherlands Datacenter  
+149.104.24.86:40001     SOCKS5  FAST    789ms    yes   SUBMIT-587   Hong Kong       Residential 
+102.244.78.61:8085      HTTP    FAST    808ms    yes   SUBMIT-587   Cameroon        Mobile      
+102.244.78.61:8081      HTTP    FAST    814ms    yes   SUBMIT-587   Cameroon        Mobile      
+101.36.104.239:10808    SOCKS5  FAST    874ms    yes   SUBMIT-587   Japan           Datacenter  
+183.106.215.208:1080    SOCKS5  FAST    958ms    yes   SUBMIT-587   South Korea     Residential 
+183.80.59.62:1083       SOCKS5  FAST    966ms    yes   SUBMIT-587   Vietnam         Residential 
+45.194.33.12:30001      SOCKS5  FAST    988ms    yes   SUBMIT-587   Hong Kong       Residential 
+57.128.249.250:9052     SOCKS5  MEDIUM  1013ms   yes   SUBMIT-587   San Marino      Residential 
+45.194.33.12:30002      SOCKS5  MEDIUM  1032ms   yes   SUBMIT-587   Hong Kong       Residential 
+140.238.243.61:1080     SOCKS5  MEDIUM  1044ms   yes   SUBMIT-587   India           Datacenter  
+37.18.73.60:5566        SOCKS5  MEDIUM  1086ms   yes   SUBMIT-587   The Netherlands Residential 
+47.252.47.39:1080       SOCKS5  MEDIUM  1251ms   yes   SUBMIT-587   United States   Datacenter  
+93.90.231.101:1080      SOCKS5  MEDIUM  1262ms   yes   SUBMIT-587   Russia          Mobile      
+125.209.110.83:1981     SOCKS4  MEDIUM  1307ms   yes   SUBMIT-587   Pakistan        Residential 
+212.77.75.25:1088       SOCKS5  MEDIUM  1485ms   yes   SUBMIT-587   Italy           Datacenter  
+42.115.72.145:1110      SOCKS5  MEDIUM  1536ms   yes   SUBMIT-587   Vietnam         Residential 
+181.57.178.146:1080     SOCKS4  MEDIUM  1608ms   yes   SUBMIT-587   Colombia        Residential 
+203.77.239.219:50574    SOCKS4  MEDIUM  1979ms   yes   SUBMIT-587   Indonesia       Residential 
+158.101.8.92:1080       SOCKS5  MEDIUM  2068ms   yes   SUBMIT-587   Austria         Datacenter  
+192.3.196.141:1080      SOCKS5  MEDIUM  2094ms   yes   SUBMIT-587   United States   Datacenter  
+121.169.46.116:1090     SOCKS5  MEDIUM  2563ms   yes   SUBMIT-587   South Korea     Residential 
+121.139.218.165:43295   SOCKS4  MEDIUM  2665ms   yes   SUBMIT-587   South Korea     Residential 
+149.248.18.106:1081     SOCKS5  MEDIUM  2754ms   yes   SUBMIT-587   Canada          Datacenter  
+110.39.151.50:1080      SOCKS5  SLOW    3195ms   yes   SUBMIT-587   Pakistan        Residential 
+102.0.35.254:1080       SOCKS4  SLOW    3288ms   yes   SUBMIT-587   Kenya           Residential 
+5.75.133.113:10805      SOCKS5  SLOW    3297ms   yes   SUBMIT-587   United Kingdom  Datacenter  
+47.245.165.201:1080     SOCKS5  SLOW    3629ms   yes   SUBMIT-587   Germany         Datacenter  
+49.13.22.249:10805      SOCKS5  SLOW    3732ms   yes   SUBMIT-587   Ukraine         Datacenter  
+203.156.190.5:5678      SOCKS4  SLOW    3793ms   yes   SUBMIT-587   Thailand        Residential 
+103.182.22.221:9000     SOCKS5  SLOW    3855ms   yes   SUBMIT-587   Vietnam         Residential 
+182.253.144.20:4153     SOCKS4  SLOW    4092ms   yes   SUBMIT-587   Indonesia       Residential 
+195.135.255.98:1080     SOCKS5  SLOW    4482ms   yes   SUBMIT-587   Latvia          Datacenter  
+31.76.110.221:1080      SOCKS5  SLOW    4888ms   yes   SUBMIT-587   The Netherlands Residential 
+103.182.22.48:9000      SOCKS5  SLOW    4945ms   yes   SUBMIT-587   Vietnam         Residential 
+181.209.98.106:1080     SOCKS4  SLOW    5168ms   yes   SUBMIT-587   Argentina       Residential 
+27.54.121.90:1080       SOCKS5  SLOW    5889ms   yes   SUBMIT-587   Pakistan        Residential 
+209.50.255.91:1080      SOCKS5  BAD     7088ms   yes   SUBMIT-587   United States   Datacenter  
+220.158.232.118:1080    SOCKS5  BAD     7823ms   yes   SUBMIT-587   Cambodia        Mobile      
+49.13.22.249:10806      SOCKS5  BAD     8833ms   yes   SUBMIT-587   Japan           Residential 
+92.205.186.129:1080     SOCKS5  BAD     9467ms   yes   SUBMIT-587   France          Datacenter  
+80.65.211.149:8888      SOCKS5  BAD     9538ms   yes   SUBMIT-587   United States   Datacenter  
+5.255.117.250:1080      SOCKS5  BAD     11426ms  yes   SUBMIT-587   The Netherlands Datacenter  
+5.255.103.55:1080       SOCKS5  BAD     14409ms  yes   SUBMIT-587   The Netherlands Datacenter  
+78.12.136.220:7576      SOCKS5  FAST    252ms    yes   SUBMIT-465   United States   Datacenter  
+41.33.245.139:1976      HTTP    FAST    461ms    yes   SUBMIT-465   Egypt           Residential 
+193.25.215.182:22222    SOCKS5  FAST    484ms    yes   SUBMIT-465   United States   Residential 
+41.33.245.139:1981      HTTP    FAST    544ms    yes   SUBMIT-465   Egypt           Residential 
+13.215.184.250:35908    SOCKS5  FAST    679ms    yes   SUBMIT-465   Singapore       Datacenter  
+51.85.44.162:15789      SOCKS5  FAST    785ms    yes   SUBMIT-465   United States   Datacenter  
+177.234.217.93:999      HTTP    MEDIUM  1280ms   yes   SUBMIT-465   Ecuador         Residential 
+45.61.188.134:44499     SOCKS5  MEDIUM  1389ms   yes   SUBMIT-465   United States   Datacenter  
+177.234.217.235:999     HTTP    MEDIUM  2550ms   yes   SUBMIT-465   Ecuador         Residential 
+68.71.249.158:4145      SOCKS5  FAST    105ms    no    -            United States   Residential 
+67.201.35.145:4145      SOCKS5  FAST    106ms    no    -            United States   Residential 
+67.201.39.14:4145       SOCKS5  FAST    110ms    no    -            United States   Residential 
+68.71.242.118:4145      SOCKS5  FAST    126ms    no    -            United States   Residential 
+67.201.58.190:4145      SOCKS5  FAST    130ms    no    -            United States   Residential 
+31.56.65.108:80         HTTP    FAST    133ms    no    -            United States   Residential 
+199.102.104.70:4145     SOCKS5  FAST    134ms    no    -            United States   Residential 
+142.93.202.130:3128     HTTP    FAST    147ms    no    -            United States   Datacenter  
+34.44.49.215:80         HTTP    FAST    148ms    no    -            United States   Datacenter  
+130.127.204.197:8080    HTTP    FAST    178ms    no    -            United States   Residential 
+137.66.1.45:80          HTTP    FAST    225ms    no    -            United States   Datacenter  
+109.199.119.160:80      HTTP    FAST    315ms    no    -            France          Datacenter  
+188.165.199.207:80      HTTP    FAST    326ms    no    -            France          Datacenter  
+97.74.87.226:80         HTTP    FAST    338ms    no    -            Japan           Datacenter  
+4.144.146.21:80         HTTP    FAST    340ms    no    -            Singapore       Datacenter  
+45.189.57.114:3129      HTTP    FAST    378ms    no    -            Ecuador         Residential 
+195.114.209.50:80       HTTP    FAST    380ms    no    -            Spain           Datacenter  
+185.135.69.34:80        HTTP    FAST    434ms    no    -            Iraq            Residential 
+203.19.38.114:1080      HTTP    FAST    440ms    no    -            Hong Kong       Residential 
+192.252.211.193:4145    SOCKS5  FAST    493ms    no    -            United States   Datacenter  
+192.252.214.17:4145     SOCKS5  FAST    494ms    no    -            United States   Datacenter  
+192.252.216.86:4145     SOCKS5  FAST    500ms    no    -            United States   Datacenter  
+192.111.137.35:4145     SOCKS5  FAST    501ms    no    -            United States   Datacenter  
+199.66.183.226:4145     SOCKS5  FAST    501ms    no    -            United States   Residential 
+216.105.143.146:4145    SOCKS5  FAST    503ms    no    -            United States   Residential 
+184.170.251.30:11288    SOCKS5  FAST    503ms    no    -            United States   Datacenter  
+216.105.128.144:4145    SOCKS5  FAST    504ms    no    -            United States   Residential 
+199.66.182.243:4145     SOCKS5  FAST    504ms    no    -            United States   Residential 
+192.252.208.70:14282    SOCKS5  FAST    504ms    no    -            United States   Datacenter  
+192.252.210.233:4145    SOCKS5  FAST    507ms    no    -            United Kingdom  Datacenter  
+216.105.130.131:4145    SOCKS5  FAST    510ms    no    -            United States   Residential 
+192.111.129.150:4145    SOCKS5  FAST    518ms    no    -            United States   Datacenter  
+199.66.182.232:4145     SOCKS5  FAST    521ms    no    -            United States   Residential 
+199.66.183.251:4145     SOCKS5  FAST    522ms    no    -            United States   Residential 
+219.93.101.62:80        HTTP    FAST    528ms    no    -            Malaysia        Residential 
+176.111.37.216:39811    HTTP    FAST    541ms    no    -            Hong Kong       Residential 
+212.127.95.235:8081     HTTP    FAST    542ms    no    -            Poland          Residential 
+196.1.97.198:80         HTTP    FAST    545ms    no    -            Senegal         Residential 
+219.93.101.63:80        HTTP    FAST    556ms    no    -            Malaysia        Residential 
+72.195.34.41:4145       SOCKS5  FAST    569ms    no    -            United States   Residential 
+174.64.199.79:4145      SOCKS5  FAST    569ms    no    -            United States   Residential 
+184.178.172.18:15280    SOCKS5  FAST    571ms    no    -            United States   Residential 
+184.178.172.5:15303     SOCKS5  FAST    571ms    no    -            United States   Residential 
+98.181.137.83:4145      SOCKS5  FAST    571ms    no    -            United States   Residential 
+98.175.31.195:4145      SOCKS5  FAST    573ms    no    -            United States   Residential 
+184.181.217.213:4145    SOCKS5  FAST    573ms    no    -            United States   Residential 
+115.127.31.66:8080      HTTP    FAST    573ms    no    -            Bangladesh      Residential 
+184.181.217.206:4145    SOCKS5  FAST    573ms    no    -            United States   Residential 
+98.181.137.80:4145      SOCKS5  FAST    574ms    no    -            United States   Residential 
+184.178.172.14:4145     SOCKS5  FAST    575ms    no    -            United States   Residential 
+184.181.217.210:4145    SOCKS5  FAST    577ms    no    -            United States   Residential 
+72.195.114.184:4145     SOCKS5  FAST    578ms    no    -            United States   Residential 
+184.181.217.201:4145    SOCKS5  FAST    578ms    no    -            United States   Residential 
+24.249.199.12:4145      SOCKS5  FAST    578ms    no    -            United States   Residential 
+184.178.172.13:15311    SOCKS5  FAST    578ms    no    -            United States   Residential 
+184.181.217.194:4145    SOCKS5  FAST    578ms    no    -            United States   Residential 
+184.178.172.26:4145     SOCKS5  FAST    579ms    no    -            United States   Residential 
+184.178.172.11:4145     SOCKS5  FAST    580ms    no    -            United States   Residential 
+184.178.172.25:15291    SOCKS5  FAST    583ms    no    -            United States   Residential 
+98.182.147.97:4145      SOCKS5  FAST    583ms    no    -            United States   Residential 
+70.166.65.160:4145      SOCKS5  FAST    584ms    no    -            United States   Residential 
+98.191.0.37:4145        SOCKS5  FAST    584ms    no    -            United States   Residential 
+184.178.172.28:15294    SOCKS5  FAST    586ms    no    -            United States   Residential 
+174.75.211.193:4145     SOCKS5  FAST    588ms    no    -            United States   Residential 
+68.1.210.189:4145       SOCKS5  FAST    589ms    no    -            United States   Residential 
+184.178.172.17:4145     SOCKS5  FAST    589ms    no    -            United States   Residential 
+72.206.74.126:4145      SOCKS5  FAST    590ms    no    -            United States   Residential 
+72.205.0.67:4145        SOCKS5  FAST    591ms    no    -            United States   Residential 
+184.178.172.23:4145     SOCKS5  FAST    593ms    no    -            United States   Residential 
+72.214.108.67:4145      SOCKS5  FAST    595ms    no    -            United States   Residential 
+184.182.240.211:4145    SOCKS5  FAST    599ms    no    -            United States   Residential 
+69.55.49.177:38182      SOCKS5  FAST    602ms    no    -            United States   Datacenter  
+184.185.2.12:4145       SOCKS5  FAST    602ms    no    -            United States   Residential 
+72.195.101.99:4145      SOCKS5  FAST    658ms    no    -            United States   Residential 
+82.69.119.68:49200      HTTP    FAST    703ms    no    -            United Kingdom  Residential 
+119.188.131.55:17981    HTTP    FAST    728ms    no    -            China           Residential 
+176.124.206.150:8443    SOCKS5  FAST    826ms    no    -            Finland         Datacenter  
+176.111.37.5:39811      HTTP    FAST    827ms    no    -            Hong Kong       Residential 
+120.232.115.170:17981   HTTP    FAST    876ms    no    -            China           Mobile      
+61.158.175.38:9002      HTTP    FAST    887ms    no    -            China           Residential 
+113.204.79.230:9091     HTTP    FAST    910ms    no    -            China           Residential 
+66.42.224.229:41679     SOCKS5  FAST    932ms    no    -            United States   Residential 
+153.0.171.163:8085      HTTP    FAST    938ms    no    -            China           Residential 
+89.167.118.3:1080       SOCKS5  FAST    987ms    no    -            Germany         Datacenter  
+184.182.240.12:4145     SOCKS5  FAST    996ms    no    -            United States   Residential 
+72.49.49.11:31034       SOCKS5  MEDIUM  1018ms   no    -            United States   Residential 
+59.153.81.234:5678      SOCKS4  MEDIUM  1024ms   no    -            Indonesia       Residential 
+202.133.88.173:80       HTTP    MEDIUM  1024ms   no    -            France          Residential 
+34.140.137.151:80       HTTP    MEDIUM  1040ms   no    -            Belgium         Datacenter  
+123.58.219.171:10808    SOCKS5  MEDIUM  1094ms   no    -            Hong Kong       Datacenter  
+93.100.74.173:8088      SOCKS5  MEDIUM  1127ms   no    -            Romania         Residential 
+152.86.78.16:1080       SOCKS5  MEDIUM  1307ms   no    -            United States   Residential 
+185.191.239.248:3128    HTTP    MEDIUM  1389ms   no    -            Switzerland     Residential 
+42.117.137.116:1112     SOCKS5  MEDIUM  1538ms   no    -            Vietnam         Residential 
+216.68.128.121:4145     SOCKS5  MEDIUM  1630ms   no    -            United States   Residential 
+116.104.154.193:1069    SOCKS5  MEDIUM  1696ms   no    -            Vietnam         Residential 
+190.7.138.78:8080       HTTP    MEDIUM  2416ms   no    -            Colombia        Residential 
+103.65.237.92:5678      HTTP    MEDIUM  2455ms   no    -            Indonesia       Residential 
+184.178.172.3:4145      SOCKS4  MEDIUM  2574ms   no    -            United States   Residential 
+72.205.0.93:4145        SOCKS5  MEDIUM  2662ms   no    -            United States   Residential 
+27.185.218.213:17981    HTTP    MEDIUM  2687ms   no    -            China           Residential 
+208.102.51.6:58208      SOCKS5  MEDIUM  2777ms   no    -            United States   Residential 
+69.61.200.104:36181     SOCKS5  SLOW    3014ms   no    -            United States   Residential 
+193.218.118.128:1080    SOCKS5  SLOW    3411ms   no    -            United States   Residential 
+154.57.208.127:8080     HTTP    SLOW    3424ms   no    -            Pakistan        Residential 
+72.195.114.169:4145     SOCKS4  SLOW    3563ms   no    -            United States   Residential 
+72.195.34.58:4145       SOCKS5  SLOW    3655ms   no    -            United States   Residential 
+5.75.133.113:10811      SOCKS5  SLOW    4058ms   no    -            United Kingdom  Datacenter  
+103.213.97.78:80        HTTP    SLOW    4357ms   no    -            China           Residential 
+177.234.217.46:999      HTTP    SLOW    4441ms   no    -            Ecuador         Residential 
+46.17.43.219:7890       SOCKS5  SLOW    5393ms   no    -            Germany         Residential 
+110.39.156.195:8080     HTTP    SLOW    5461ms   no    -            Pakistan        Residential 
+8.220.204.215:6969      SOCKS5  BAD     6272ms   no    -            United Kingdom  Residential 
+47.238.134.126:100      SOCKS5  BAD     6301ms   no    -            United Kingdom  Residential 
+47.121.182.88:8090      SOCKS5  BAD     6342ms   no    -            United Kingdom  Residential 
+39.100.88.89:34567      SOCKS5  BAD     6351ms   no    -            United Kingdom  Residential 
+8.212.165.164:5094      SOCKS5  BAD     6390ms   no    -            United Kingdom  Residential 
+47.91.120.190:80        SOCKS5  BAD     6473ms   no    -            United Kingdom  Residential 
+41.190.157.162:3128     HTTP    BAD     7383ms   no    -            Uganda          Residential 
+140.238.32.108:3128     HTTP    BAD     9533ms   no    -            Japan           Datacenter  
+213.199.47.140:1080     SOCKS5  BAD     9614ms   no    -            France          Datacenter  
+195.201.246.53:1089     SOCKS5  BAD     14042ms  no    -            United States   Datacenter  
 
-# 284 active proxies listed. Not shown: 1546 open (port open, not a working proxy), 1067 down.
+# 194 active proxies listed. Not shown: 1509 open (port open, not a working proxy), 1137 down.
