@@ -1,44 +1,49 @@
 COUNTRY             HEALTHY  FAST   SMTP   AVG_LATENCY 
 -------------------------------------------------------
-United States       73       59     6      933ms       
-Hong Kong           9        3      4      1272ms      
-Indonesia           7        3      4      1321ms      
-Germany             5        3      1      981ms       
-Singapore           5        1      4      2757ms      
-Egypt               5        4      5      1244ms      
-China               5        3      2      1396ms      
-Switzerland         4        0      3      2468ms      
-Japan               3        1      2      941ms       
-South Korea         3        0      2      2608ms      
-Cambodia            3        0      1      3366ms      
-Canada              2        2      1      210ms       
-Mexico              2        1      1      596ms       
-Ecuador             2        1      1      2616ms      
-Colombia            2        2      2      404ms       
-United Kingdom      2        2      1      464ms       
-Malaysia            2        2      0      550ms       
-Poland              2        1      1      1791ms      
-Bangladesh          2        1      0      1891ms      
-Philippines         2        1      0      2533ms      
-The Netherlands     2        1      2      1318ms      
-France              2        1      0      1581ms      
-South Africa        2        0      2      2820ms      
-India               2        0      1      1702ms      
-Denmark             1        1      0      293ms       
-Italy               1        1      0      331ms       
-Belgium             1        1      0      332ms       
-Spain               1        1      0      339ms       
-Saudi Arabia        1        1      0      493ms       
-Serbia              1        1      1      688ms       
-Thailand            1        1      1      704ms       
-Turkey              1        1      1      915ms       
-Russia              1        1      1      962ms       
-Mozambique          1        0      0      2152ms      
-Vietnam             1        0      1      2698ms      
-Senegal             1        0      0      2895ms      
-Türkiye             1        0      0      3233ms      
-Chile               1        0      1      3291ms      
-Greece              1        0      0      3711ms      
-Sweden              1        0      0      3859ms      
-Paraguay            1        0      0      4832ms      
-Brazil              1        0      1      4955ms      
+United States       71       52     9      1115ms      
+Indonesia           9        4      7      1617ms      
+Hong Kong           6        4      1      1100ms      
+China               6        2      1      1442ms      
+The Netherlands     5        3      3      1194ms      
+Ecuador             5        2      1      1179ms      
+Singapore           5        3      4      1093ms      
+Germany             4        4      2      490ms       
+Japan               4        1      1      1352ms      
+Malaysia            3        3      0      666ms       
+India               3        2      2      971ms       
+Vietnam             3        0      3      2385ms      
+South Korea         3        0      3      4814ms      
+United Kingdom      2        2      0      277ms       
+Spain               2        1      0      1148ms      
+Colombia            2        1      2      2009ms      
+Bangladesh          2        2      0      535ms       
+Turkey              2        1      1      1025ms      
+France              2        1      0      3081ms      
+Latvia              2        1      1      974ms       
+Cameroon            2        2      2      724ms       
+Venezuela           2        1      1      1559ms      
+Cambodia            2        1      1      2501ms      
+Pakistan            2        1      2      1027ms      
+Ukraine             2        0      2      3250ms      
+Türkiye             2        0      2      3745ms      
+Canada              1        1      1      147ms       
+Mexico              1        1      1      175ms       
+Denmark             1        1      0      238ms       
+Belgium             1        1      0      291ms       
+Finland             1        1      1      331ms       
+Poland              1        1      0      414ms       
+Hungary             1        1      1      419ms       
+Senegal             1        1      0      451ms       
+Saudi Arabia        1        1      0      460ms       
+Switzerland         1        1      0      556ms       
+Italy               1        1      1      677ms       
+Austria             1        1      1      729ms       
+Russia              1        1      0      994ms       
+Kazakhstan          1        0      0      1194ms      
+Uzbekistan          1        0      1      1825ms      
+Iraq                1        0      0      2112ms      
+Brazil              1        0      1      2277ms      
+Bulgaria            1        0      1      2990ms      
+Australia           1        0      0      3536ms      
+Paraguay            1        0      0      3626ms      
+Philippines         1        0      0      3852ms      
